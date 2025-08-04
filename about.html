@@ -1,59 +1,234 @@
 <!DOCTYPE html>
 <html lang="en-ZA">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About Us | LU Ally's</title>
-  <link rel="stylesheet" href="/css/main.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About LU Ally's | Black Woman-Owned Transport & Accommodation</title>
+    <meta name="description" content="Learn about LU Ally's journey since 2013 - a 100% black woman-owned transport and guesthouse business in Postmasburg, Northern Cape.">
+    
+    <!-- Preload resources -->
+    <link rel="preload" href="css/main.css" as="style">
+    <link rel="preload" href="js/gsap.min.js" as="script">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/main.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 </head>
 <body>
-  <main class="container" style="padding: 2rem; max-width: 960px; margin: auto;">
-    <h1>About LU Ally's</h1>
-    <p>LU Ally's is a proudly Black woman-owned business based in Postmasburg, Northern Cape. We specialise in safe, reliable, and professional transport and accommodation services for corporate and individual clients.</p>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="assets/logo.svg" alt="LU Ally's Guesthouse and Transport" width="180" height="40">
+            </a>
+            
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li><a href="services.html" class="nav__link">Services</a></li>
+                    <li><a href="about.html" class="nav__link active">About</a></li>
+                    <li><a href="guesthouse.html" class="nav__link">Guesthouse</a></li>
+                    <li><a href="#contact" class="nav__link">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <a href="#contact" class="button button--primary">Get Quote</a>
+            
+            <button class="hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
 
-    <h2>Our Mission</h2>
-    <p>To offer dependable, high-quality service with integrity and a personal touch, while empowering our community and women in business.</p>
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>Our Story</h1>
+            <p>From humble beginnings to trusted service provider in the Northern Cape</p>
+        </div>
+    </section>
 
-    <h2>Our Team</h2>
-    <p>Our staff are trained professionals who value safety, hospitality, and service excellence. Whether you need industrial transport or a luxury guesthouse, we deliver with pride.</p>
+    <!-- About Content -->
+    <section class="section about-page">
+        <div class="container">
+            <div class="about-page__content">
+                <div class="about-page__text">
+                    <h2>Built on Excellence</h2>
+                    <p>Founded in 2013 by Alison Neels, LU Ally's began as a small transport operation serving local mining companies in Postmasburg. Recognizing the need for both reliable transport and quality accommodation in the area, Alison expanded the business to include guesthouse services.</p>
+                    
+                    <p>What started as a single tipper truck has grown into a multi-service company with a diverse fleet and luxury accommodation options. Our journey reflects our commitment to excellence and our deep understanding of our clients' needs in the Tsantsabane area.</p>
+                    
+                    <h3>Our Mission</h3>
+                    <p>To be the leading female-owned transport and accommodation provider in the Northern Cape by delivering reliable, safe, and cost-effective services that exceed client expectations.</p>
+                    
+                    <h3>Our Vision</h3>
+                    <p>To transform the transport and hospitality landscape through innovative solutions while empowering our community and maintaining the highest standards of service.</p>
+                </div>
+                
+                <div class="about-page__image">
+                    <img src="assets/about-team.jpg" alt="LU Ally's team members" loading="lazy">
+                    <div class="image-caption">Our dedicated team at the Postmasburg office</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <h2>Why Choose Us?</h2>
-    <ul>
-      <li>Local expertise and service</li>
-      <li>Reliable transport fleet including site-tipping trucks</li>
-      <li>Comfortable guesthouse accommodation</li>
-      <li>POPAA- and safety-compliant</li>
-    </ul>
+    <!-- Team Section -->
+    <section class="section team">
+        <div class="container">
+            <div class="section__header">
+                <span class="section__subtitle">Leadership</span>
+                <h2 class="section__title">Meet Our Team</h2>
+            </div>
+            
+            <div class="team__grid">
+                <div class="team-member">
+                    <div class="team-member__image">
+                        <img src="assets/team-alison.jpg" alt="Alison Neels" loading="lazy">
+                    </div>
+                    <h3>Alison Neels</h3>
+                    <p class="team-member__position">CEO & Founder</p>
+                    <p class="team-member__bio">With over 15 years in the transport industry, Alison founded LU Ally's to provide reliable services while creating opportunities for local employment.</p>
+                </div>
+                
+                <div class="team-member">
+                    <div class="team-member__image">
+                        <img src="assets/team-davids.jpg" alt="Mr J. Davids" loading="lazy">
+                    </div>
+                    <h3>Mr J. Davids</h3>
+                    <p class="team-member__position">Project Manager</p>
+                    <p class="team-member__bio">Oversees all transport operations with a focus on safety and efficiency, ensuring timely delivery of goods.</p>
+                </div>
+                
+                <div class="team-member">
+                    <div class="team-member__image">
+                        <img src="assets/team-stoffels.jpg" alt="Mr D. Stoffels" loading="lazy">
+                    </div>
+                    <h3>Mr D. Stoffels</h3>
+                    <p class="team-member__position">Human Resources</p>
+                    <p class="team-member__bio">Manages our team of 12 dedicated staff members, ensuring we maintain high service standards.</p>
+                </div>
+                
+                <div class="team-member">
+                    <div class="team-member__image">
+                        <img src="assets/team-mocumi.jpg" alt="T.V. Mocumi" loading="lazy">
+                    </div>
+                    <h3>T.V. Mocumi</h3>
+                    <p class="team-member__position">Operations Manager</p>
+                    <p class="team-member__bio">Coordinates daily activities across both transport and guesthouse divisions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <p><a href="/services.html" class="btn">View Our Services</a></p>
-  </main>
+    <!-- Values Section -->
+    <section class="section values">
+        <div class="container">
+            <div class="section__header">
+                <span class="section__subtitle">What We Stand For</span>
+                <h2 class="section__title">Our Core Values</h2>
+            </div>
+            
+            <div class="values__grid">
+                <div class="value-card">
+                    <div class="value-card__icon">
+                        <img src="assets/icons/integrity.svg" alt="Integrity icon" width="48" height="48">
+                    </div>
+                    <h3>Integrity</h3>
+                    <p>We conduct all business with honesty and transparency, building trust with every interaction.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-card__icon">
+                        <img src="assets/icons/excellence.svg" alt="Excellence icon" width="48" height="48">
+                    </div>
+                    <h3>Excellence</h3>
+                    <p>We strive for the highest standards in all our services, continuously improving our offerings.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-card__icon">
+                        <img src="assets/icons/empowerment.svg" alt="Empowerment icon" width="48" height="48">
+                    </div>
+                    <h3>Empowerment</h3>
+                    <p>As a black woman-owned business, we're committed to creating opportunities in our community.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-card__icon">
+                        <img src="assets/icons/reliability.svg" alt="Reliability icon" width="48" height="48">
+                    </div>
+                    <h3>Reliability</h3>
+                    <p>Clients can count on us to deliver on our promises, every single time.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Experience Our Services?</h2>
+            <p>Contact us today to discuss your transport or accommodation needs.</p>
+            <a href="#contact" class="button button--primary button--large">Get in Touch</a>
+        </div>
+    </section>
 
-  <div id="cookieConsent" style="display: none; position: fixed; bottom: 0; left: 0; right: 0; background: #003366; color: #fff; padding: 1rem; font-size: 0.95rem; z-index: 9999;">
-  <div style="max-width: 960px; margin: auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;">
-    <span>
-      We use cookies to improve your experience and deliver personalized content. By using this site, you consent to our use of cookies in accordance with the <a href="/privacy.html" style="color: #ffc107; text-decoration: underline;">POPIA policy</a>.
-    </span>
-    <button id="acceptCookies" style="margin-top: 0.5rem; padding: 0.5rem 1rem; background: #ffc107; color: #003366; border: none; border-radius: 5px; font-weight: bold; cursor: pointer;">
-      Accept
-    </button>
-  </div>
-</div>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__col">
+                    <img src="assets/logo-light.svg" alt="LU Ally's" width="160" height="36">
+                    <p>Providing premium transport and accommodation services in Northern Cape since 2013.</p>
+                </div>
+                
+                <div class="footer__col">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="services.html">Site Tipping Trucks</a></li>
+                        <li><a href="services.html">Yellow Fleet</a></li>
+                        <li><a href="guesthouse.html">Guesthouse</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer__col">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="about.html">Our Team</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer__col">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">BBBEE Certificate</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer__bottom">
+                <p>&copy; 2023 LU Ally's Guesthouse and Transport. All rights reserved.</p>
+                <p>Company Registration: 2013/178702/07</p>
+            </div>
+        </div>
+    </footer>
 
-
-
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    if (!localStorage.getItem('cookiesAccepted')) {
-      document.getElementById('cookieConsent').style.display = 'block';
-    }
-
-    document.getElementById('acceptCookies').addEventListener('click', function () {
-      localStorage.setItem('cookiesAccepted', 'true');
-      document.getElementById('cookieConsent').style.display = 'none';
-    });
-  });
-</script>
-
+    <!-- Scripts -->
+    <script src="js/gsap.min.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>

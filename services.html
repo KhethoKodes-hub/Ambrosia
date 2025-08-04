@@ -1,63 +1,279 @@
 <!DOCTYPE html>
 <html lang="en-ZA">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Our Services | LU Ally's</title>
-  <link rel="stylesheet" href="/css/main.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transport Services | LU Ally's | Postmasburg</title>
+    <meta name="description" content="Professional transport services including site tipping trucks, yellow fleet, and passenger transport in Northern Cape. BBBEE Level 1 certified.">
+    
+    <!-- Preload resources -->
+    <link rel="preload" href="css/main.css" as="style">
+    <link rel="preload" href="js/gsap.min.js" as="script">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/main.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 </head>
 <body>
-  <main class="container" style="padding: 2rem; max-width: 960px; margin: auto;">
-    <h1>Our Services</h1>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="assets/logo.svg" alt="LU Ally's Guesthouse and Transport" width="180" height="40">
+            </a>
+            
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li><a href="services.html" class="nav__link active">Services</a></li>
+                    <li><a href="about.html" class="nav__link">About</a></li>
+                    <li><a href="guesthouse.html" class="nav__link">Guesthouse</a></li>
+                    <li><a href="#contact" class="nav__link">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <a href="#contact" class="button button--primary">Get Quote</a>
+            
+            <button class="hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
 
-    <section>
-      <h2>Transport Services</h2>
-      <p>We offer heavy-duty site-tipping trucks, yellow fleet machinery, and certified drivers for mining, construction, and corporate projects.</p>
-      <ul>
-        <li>Site Tipping Trucks</li>
-        <li>Yellow Fleet Hire</li>
-        <li>Logistics & Scheduling</li>
-      </ul>
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>Transport Services</h1>
+            <p>Reliable, safe, and efficient transport solutions for the Northern Cape</p>
+        </div>
     </section>
 
-    <section>
-      <h2>Accommodation Services</h2>
-      <p>Our guesthouse in Postmasburg offers modern rooms, safe parking, and top-tier hospitality for business travelers and groups.</p>
-      <ul>
-        <li>Luxury double and single rooms</li>
-        <li>Group and contractor accommodation</li>
-        <li>Free Wi-Fi, TV, and breakfast available</li>
-      </ul>
+    <!-- Services Overview -->
+    <section class="section services-page">
+        <div class="container">
+            <div class="section__header">
+                <span class="section__subtitle">Our Offerings</span>
+                <h2 class="section__title">Comprehensive Transport Solutions</h2>
+            </div>
+            
+            <div class="services-page__intro">
+                <p>With a fleet of well-maintained vehicles and experienced operators, LU Ally's provides professional transport services tailored to the mining and construction industries. Our BBBEE Level 1 certification ensures your procurement goals are met while receiving top-quality service.</p>
+            </div>
+            
+            <div class="services-page__tabs">
+                <div class="tab-buttons">
+                    <button class="tab-button active" data-tab="tipping">Site Tipping</button>
+                    <button class="tab-button" data-tab="fleet">Yellow Fleet</button>
+                    <button class="tab-button" data-tab="passenger">Passenger Transport</button>
+                </div>
+                
+                <div class="tab-content active" id="tipping">
+                    <div class="tab-content__grid">
+                        <div class="tab-content__text">
+                            <h3>Site Tipping Trucks</h3>
+                            <p>Our specialty lies in site tipper transportation, with a fleet designed to handle the demanding requirements of mining and construction operations. We've diversified our fleet to include specialty trailers to move a variety of unique commodities.</p>
+                            
+                            <ul class="feature-list">
+                                <li>Real-time vehicle tracking</li>
+                                <li>Experienced drivers with mine site certifications</li>
+                                <li>60,000 tons transported monthly for Tsantsabane Mine</li>
+                                <li>40,000 tons monthly aggregate transport</li>
+                                <li>Backed by comprehensive insurance</li>
+                            </ul>
+                            
+                            <a href="#contact" class="button button--primary">Request Quote</a>
+                        </div>
+                        
+                        <div class="tab-content__image">
+                            <img src="assets/tipping-service.jpg" alt="Site tipping truck in operation" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="fleet">
+                    <div class="tab-content__grid">
+                        <div class="tab-content__text">
+                            <h3>Yellow Fleet Equipment</h3>
+                            <p>We provide complete load and haul operation services with an experienced technical team for open cast mining and underground activities. Our equipment is regularly maintained to ensure maximum uptime.</p>
+                            
+                            <ul class="feature-list">
+                                <li>777 Trucks and Front-End Loaders</li>
+                                <li>Graders and Dozers</li>
+                                <li>Diesel bowsers and water trucks</li>
+                                <li>TLBs and other specialized equipment</li>
+                                <li>Sourcing available for unique requirements</li>
+                            </ul>
+                            
+                            <a href="#contact" class="button button--primary">Inquire About Availability</a>
+                        </div>
+                        
+                        <div class="tab-content__image">
+                            <img src="assets/yellow-fleet-service.jpg" alt="Yellow fleet equipment" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="passenger">
+                    <div class="tab-content__grid">
+                        <div class="tab-content__text">
+                            <h3>Passenger Transport</h3>
+                            <p>Safe and reliable employee transport solutions ranging from small groups to larger crews. Our vehicles are maintained to the highest safety standards.</p>
+                            
+                            <ul class="feature-list">
+                                <li>9-seater minibuses</li>
+                                <li>21-seater buses</li>
+                                <li>Light vehicle rentals for day visitors</li>
+                                <li>Tsantsabane area coverage</li>
+                                <li>Experienced, certified drivers</li>
+                            </ul>
+                            
+                            <a href="#contact" class="button button--primary">Arrange Transport</a>
+                        </div>
+                        
+                        <div class="tab-content__image">
+                            <img src="assets/passenger-service.jpg" alt="Passenger transport vehicle" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <p><a href="/contact.html" class="btn">Contact Us to Book</a></p>
-  </main>
+    <!-- Features Section -->
+    <section class="section features">
+        <div class="container">
+            <div class="section__header">
+                <span class="section__subtitle">Why Choose Us</span>
+                <h2 class="section__title">Our Service Advantages</h2>
+            </div>
+            
+            <div class="features__grid">
+                <div class="feature-card">
+                    <div class="feature-card__icon">
+                        <img src="assets/icons/tracking.svg" alt="Tracking icon" width="48" height="48">
+                    </div>
+                    <h3>Real-Time Tracking</h3>
+                    <p>Our custom tracking system allows us to monitor your shipments every step of the way.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-card__icon">
+                        <img src="assets/icons/safety.svg" alt="Safety icon" width="48" height="48">
+                    </div>
+                    <h3>Safety First</h3>
+                    <p>Regular driver training and vehicle maintenance ensure safe operations.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-card__icon">
+                        <img src="assets/icons/reliability.svg" alt="Reliability icon" width="48" height="48">
+                    </div>
+                    <h3>Reliability</h3>
+                    <p>We maintain backup vehicles to prevent service interruptions.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-card__icon">
+                        <img src="assets/icons/bbbee.svg" alt="BBBEE icon" width="48" height="48">
+                    </div>
+                    <h3>BBBEE Level 1</h3>
+                    <p>100% black woman-owned business supporting your procurement goals.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Need Reliable Transport Solutions?</h2>
+            <p>Contact us today to discuss your specific requirements.</p>
+            <a href="#contact" class="button button--primary button--large">Get in Touch</a>
+        </div>
+    </section>
 
-  <div id="cookieConsent" style="display: none; position: fixed; bottom: 0; left: 0; right: 0; background: #003366; color: #fff; padding: 1rem; font-size: 0.95rem; z-index: 9999;">
-  <div style="max-width: 960px; margin: auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;">
-    <span>
-      We use cookies to improve your experience and deliver personalized content. By using this site, you consent to our use of cookies in accordance with the <a href="/privacy.html" style="color: #ffc107; text-decoration: underline;">POPIA policy</a>.
-    </span>
-    <button id="acceptCookies" style="margin-top: 0.5rem; padding: 0.5rem 1rem; background: #ffc107; color: #003366; border: none; border-radius: 5px; font-weight: bold; cursor: pointer;">
-      Accept
-    </button>
-  </div>
-</div>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__col">
+                    <img src="assets/logo-light.svg" alt="LU Ally's" width="160" height="36">
+                    <p>Providing premium transport and accommodation services in Northern Cape since 2013.</p>
+                </div>
+                
+                <div class="footer__col">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="services.html">Site Tipping Trucks</a></li>
+                        <li><a href="services.html">Yellow Fleet</a></li>
+                        <li><a href="guesthouse.html">Guesthouse</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer__col">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="about.html">Our Team</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer__col">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">BBBEE Certificate</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer__bottom">
+                <p>&copy; 2023 LU Ally's Guesthouse and Transport. All rights reserved.</p>
+                <p>Company Registration: 2013/178702/07</p>
+            </div>
+        </div>
+    </footer>
 
-
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    if (!localStorage.getItem('cookiesAccepted')) {
-      document.getElementById('cookieConsent').style.display = 'block';
-    }
-
-    document.getElementById('acceptCookies').addEventListener('click', function () {
-      localStorage.setItem('cookiesAccepted', 'true');
-      document.getElementById('cookieConsent').style.display = 'none';
-    });
-  });
-</script>
-
+    <!-- Scripts -->
+    <script src="js/gsap.min.js"></script>
+    <script src="js/main.js"></script>
+    
+    <!-- Services Page Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Tab functionality
+            const tabButtons = document.querySelectorAll('.tab-button');
+            
+            tabButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons and content
+                    document.querySelectorAll('.tab-button').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    document.querySelectorAll('.tab-content').forEach(content => {
+                        content.classList.remove('active');
+                    });
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    // Show corresponding content
+                    const tabId = this.getAttribute('data-tab');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+        });
+    </script>
 </body>
 </html>

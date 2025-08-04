@@ -2,4 +2,5 @@ User-agent: *
 Disallow: /staging/
 Allow: /
 
-Sitemap: https://www.luallys.co.za/sitemap.xml
+Sitemap: ambrosia-five.vercel.app
+

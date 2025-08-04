@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en-ZA">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guesthouse Accommodation | LU Ally's | Postmasburg</title>
+    <meta name="description" content="Affordable luxury accommodation in Postmasburg. Comfortable rooms, restaurant facilities, and shuttle services for business travelers and visitors.">
+    
+    <!-- Preload resources -->
+    <link rel="preload" href="css/main.css" as="style">
+    <link rel="preload" href="js/gsap.min.js" as="script">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/main.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="assets/logo.svg" alt="LU Ally's Guesthouse and Transport" width="180" height="40">
+            </a>
+            
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li><a href="services.html" class="nav__link">Services</a></li>
+                    <li><a href="about.html" class="nav__link">About</a></li>
+                    <li><a href="guesthouse.html" class="nav__link active">Guesthouse</a></li>
+                    <li><a href="#contact" class="nav__link">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <a href="#booking" class="button button--primary">Book Now</a>
+            
+            <button class="hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero guesthouse-hero">
+        <div class="container">
+            <h1>Guesthouse Accommodation</h1>
+            <p>Affordable luxury in the heart of Postmasburg</p>
+        </div>
+    </section>
+
+    <!-- Accommodation Intro -->
+    <section class="section accommodation-intro">
+        <div class="container">
+            <div class="accommodation-intro__content">
+                <h2>Your Home Away From Home</h2>
+                <p>Located conveniently in Postmasburg, LU Ally's Guesthouse offers comfortable and affordable accommodation for business travelers and visitors to the Tsantsabane area. Our facilities include restaurant services, secure parking, and shuttle services upon request.</p>
+                
+                <div class="accommodation-highlights">
+                    <div class="highlight-item">
+                        <img src="assets/icons/wifi.svg" alt="WiFi" width="32" height="32">
+                        <span>Free WiFi</span>
+                    </div>
+                    <div class="highlight-item">
+                        <img src="assets/icons/restaurant.svg" alt="Restaurant" width="32" height="32">
+                        <span>Restaurant</span>
+                    </div>
+                    <div class="highlight-item">
+                        <img src="assets/icons/parking.svg" alt="Parking" width="32" height="32">
+                        <span>Secure Parking</span>
+                    </div>
+                    <div class="highlight-item">
+                        <img src="assets/icons/shuttle.svg" alt="Shuttle" width="32" height="32">
+                        <span>Shuttle Service</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Room Types -->
+    <section class="section room-types">
+        <div class="container">
+            <div class="section__header">
+                <span class="section__subtitle">Accommodation</span>
+                <h2 class="section__title">Room Options</h2>
+            </div>
+            
+            <div class="room-types__grid">
+                <div class="room-card">
+                    <div class="room-card__slider">
+                        <img src="assets/room-standard.jpg" alt="Standard Room" class="active">
+                        <img src="assets/room-standard-bath.jpg" alt="Standard Room Bathroom">
+                    </div>
+                    <div class="room-card__content">
+                        <h3>Standard Room</h3>
+                        <p class="room-price">From R850/night</p>
+                        <p>Comfortable single or double rooms with en-suite bathrooms and all necessary amenities for business travelers.</p>
+                        
+                        <ul class="room-features">
+                            <li>Queen-size bed</li>
+                            <li>En-suite bathroom</li>
+                            <li>Work desk</li>
+                            <li>Tea/coffee facilities</li>
+                        </ul>
+                        
+                        <a href="#booking" class="button button--primary">Book Now</a>
+                    </div>
+                </div>
+                
+                <div class="room-card">
+                    <div class="room-card__slider">
+                        <img src="assets/room-family.jpg" alt="Family Unit" class="active">
+                        <img src="assets/room-family-living.jpg" alt="Family Unit Living Area">
+                    </div>
+                    <div class="room-card__content">
+                        <h3>Family Unit</h3>
+                        <p class="room-price">From R1,200/night</p>
+                        <p>Spacious 2-bedroom units perfect for families or longer stays, with kitchenette and lounge area.</p>
+                        
+                        <ul class="room-features">
+                            <li>Two bedrooms</li>
+                            <li>Kitchenette</li>
+                            <li>Lounge area</li>
+                            <li>Secure parking</li>
+                        </ul>
+                        
+                        <a href="#booking" class="button button--primary">Book Now</a>
+                    </div>
+                </div>
+                
+                <div class="room-card">
+                    <div class="room-card__slider">
+                        <img src="assets/room-longterm.jpg" alt="Long-term Stay" class="active">
+                        <img src="assets/room-longterm-kitchen.jpg" alt="Long-term Stay Kitchen">
+                    </div>
+                    <div class="room-card__content">
+                        <h3>Long-term Stay</h3>
+                        <p class="room-price">From R6,500/month</p>
+                        <p>Special rates for extended stays, with weekly cleaning and optional laundry services.</p>
+                        
+                        <ul class="room-features">
+                            <li>Monthly rates</li>
+                            <li>Weekly cleaning</li>
+                            <li>Laundry service</li>
+                            <li>Dinner options</li>
+                        </ul>
+                        
+                        <a href="#booking" class="button button--primary">Inquire</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facilities -->
+    <section class="section facilities">
+        <div class="container">
+            <div class="section__header">
+                <span class="section__subtitle">Amenities</span>
+                <h2 class="section__title">Guesthouse Facilities</h2>
+            </div>
+            
+            <div class="facilities__grid">
+                <div class="facility-card">
+                    <div class="facility-card__image">
+                        <img src="assets/facility-restaurant.jpg" alt="Restaurant" loading="lazy">
+                    </div>
+                    <h3>Restaurant</h3>
+                    <p>Enjoy delicious meals prepared with fresh local ingredients. Breakfast included for all guests.</p>
+                </div>
+                
+                <div class="facility-card">
+                    <div class="facility-card__image">
+                        <img src="assets/facility-lounge.jpg" alt="Lounge Area" loading="lazy">
+                    </div>
+                    <h3>Common Lounge</h3>
+                    <p>Relax in our comfortable lounge area with TV and reading materials.</p>
+                </div>
+                
+                <div class="facility-card">
+                    <div class="facility-card__image">
+                        <img src="assets/facility-parking.jpg" alt="Secure Parking" loading="lazy">
+                    </div>
+                    <h3>Secure Parking</h3>
+                    <p>24-hour monitored parking for your peace of mind.</p>
+                </div>
+                
+                <div class="facility-card">
+                    <div class="facility-card__image">
+                        <img src="assets/facility-shuttle.jpg" alt="Shuttle Service" loading="lazy">
+                    </div>
+                    <h3>Shuttle Service</h3>
+                    <p>Available upon request for local transportation needs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section id="booking" class="section booking">
+        <div class="container">
+            <div class="booking__grid">
+                <div class="booking__form">
+                    <h2>Book Your Stay</h2>
+                    <p>Fill out the form below to check availability and make a reservation.</p>
+                    
+                    <form class="booking-form">
+                        <div class="form-group">
+                            <label for="checkin">Check-in Date</label>
+                            <input type="date" id="checkin" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="checkout">Check-out Date</label>
+                            <input type="date" id="checkout" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="room-type">Room Type</label>
+                            <select id="room-type" required>
+                                <option value="">Select Room Type</option>
+                                <option value="standard">Standard Room</option>
+                                <option value="family">Family Unit</option>
+                                <option value="longterm">Long-term Stay</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="guests">Number of Guests</label>
+                            <input type="number" id="guests" min="1" required>
+                        </div>
+                        
+                        <button type="submit" class="button button--primary button--large">Check Availability</button>
+                    </form>
+                </div>
+                
+                <div class="booking__testimonials">
+                    <h3>What Our Guests Say</h3>
+                    
+                    <div class="testimonial">
+                        <div class="testimonial__rating">
+                            ★★★★★
+                        </div>
+                        <p class="testimonial__text">"The rooms are clean and comfortable, and the staff went above and beyond to make my stay pleasant. The restaurant food is excellent!"</p>
+                        <p class="testimonial__author">- Thabo M., Business Traveler</p>
+                    </div>
+                    
+                    <div class="testimonial">
+                        <div class="testimonial__rating">
+                            ★★★★☆
+                        </div>
+                        <p class="testimonial__text">"Perfect location for visiting the mines. Secure parking and good WiFi were important for me, and LU Ally's delivered on both."</p>
+                        <p class="testimonial__author">- Sarah K., Mining Consultant</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section class="section location">
+        <div class="container">
+            <div class="section__header">
+                <span class="section__subtitle">Find Us</span>
+                <h2 class="section__title">Our Location</h2>
+            </div>
+            
+            <div class="location__grid">
+                <div class="location__map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1ddummy!2d24.123456!3d-28.123456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDA3JzI0LjQiUyAyNMKwMDcnMjQuNCJF!5e0!3m2!1sen!2sza!4vdummy" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+                
+                <div class="location__info">
+                    <h3>Getting Here</h3>
+                    <address>
+                        25 Van Wyk Street<br>
+                        West End, Postmasburg<br>
+                        8420, Northern Cape
+                    </address>
+                    
+                    <h4>Nearby Landmarks</h4>
+                    <ul>
+                        <li>Walking distance to Sibilos Shopping Mall</li>
+                        <li>5km from Postmasburg CBD</li>
+                        <li>Easy access to major mines in the area</li>
+                    </ul>
+                    
+                    <h4>Transport Options</h4>
+                    <p>We can arrange airport transfers from Kimberley or Upington airports upon request.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__col">
+                    <img src="assets/logo-light.svg" alt="LU Ally's" width="160" height="36">
+                    <p>Providing premium transport and accommodation services in Northern Cape since 2013.</p>
+                </div>
+                
+                <div class="footer__col">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="services.html">Site Tipping Trucks</a></li>
+                        <li><a href="services.html">Yellow Fleet</a></li>
+                        <li><a href="guesthouse.html">Guesthouse</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer__col">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="about.html">Our Team</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer__col">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">BBBEE Certificate</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer__bottom">
+                <p>&copy; 2023 LU Ally's Guesthouse and Transport. All rights reserved.</p>
+                <p>Company Registration: 2013/178702/07</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/gsap.min.js"></script>
+    <script src="js/main.js"></script>
+    
+    <!-- Guesthouse Specific Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Simple room image slider
+            const roomSliders = document.querySelectorAll('.room-card__slider');
+            
+            roomSliders.forEach(slider => {
+                const images = slider.querySelectorAll('img');
+                let currentIndex = 0;
+                
+                if (images.length > 1) {
+                    setInterval(() => {
+                        images[currentIndex].classList.remove('active');
+                        currentIndex = (currentIndex + 1) % images.length;
+                        images[currentIndex].classList.add('active');
+                    }, 3000);
+                }
+            });
+            
+            // Booking form validation
+            const bookingForm = document.querySelector('.booking-form');
+            if (bookingForm) {
+                bookingForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    // In a real implementation, this would send the data to your booking system
+                    alert('Thank you for your booking request! We will contact you shortly to confirm availability.');
+                    this.reset();
+                });
+            }
+        });
+    </script>
+</body>
+</html>
