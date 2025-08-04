@@ -371,8 +371,27 @@ section {
     overflow: hidden;
 }
 
+.slider {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+}
+
 .slider__item {
     position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio (adjust as needed) */
+}
+
+.slider__item img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .slider__content {
@@ -383,6 +402,14 @@ section {
     padding: var(--space-lg);
     background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
     color: var(--white);
+    box-sizing: border-box; /* Ensures padding is included in width */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .slider__content {
+        padding: var(--space-md);
+    }
 }
 
 .guesthouse__features {
