@@ -3,31 +3,397 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Transport Services | LU Ally's | Postmasburg</title>
-    <meta name="description" content="Professional transport services including site tipping trucks, yellow fleet, and passenger transport in Northern Cape. BBBEE Level 1 certified.">
-    
-    <!-- Preload resources -->
-    <link rel="preload" href="css/main.css" as="style">
-    <link rel="preload" href="js/gsap.min.js" as="script">
-    
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
-    
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/main.css">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <title>Our Services | LU Ally's Guesthouse & Transport</title>
+    <style>
+        /* ================ */
+        /* VARIABLES */
+        /* ================ */
+        :root {
+            /* Colors */
+            --primary: #1A3A6F;
+            --primary-light: #2D5AA6;
+            --secondary: #E8B959;
+            --dark: #1E1E1E;
+            --gray: #6B7280;
+            --light-gray: #F3F4F6;
+            --white: #FFFFFF;
+            
+            /* Typography */
+            --font-main: 'Manrope', sans-serif;
+            --font-heading: 'Playfair Display', serif;
+            
+            /* Spacing */
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 1.5rem;
+            --space-lg: 2rem;
+            --space-xl: 3rem;
+            
+            /* Border radius */
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 16px;
+            
+            /* Shadows */
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        /* ================ */
+        /* BASE STYLES */
+        /* ================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            padding-top: 80px; /* For fixed header */
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-heading);
+            line-height: 1.2;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-md);
+        }
+
+        section {
+            padding: var(--space-xl) 0;
+        }
+
+        /* ================ */
+        /* COMPONENTS */
+        /* ================ */
+        /* Header/Navbar */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 80px;
+            background-color: var(--white);
+            box-shadow: var(--shadow-sm);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+        }
+
+        .header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            height: 100%;
+        }
+
+        .logo img {
+            max-height: 40px;
+            width: auto;
+        }
+
+        .nav__list {
+            display: flex;
+            gap: var(--space-lg);
+            list-style: none;
+        }
+
+        .nav__link {
+            font-weight: 600;
+            position: relative;
+            padding: var(--space-xs) 0;
+            color: var(--dark);
+        }
+
+        .nav__link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav__link:hover::after {
+            width: 100%;
+        }
+
+        .nav__link.active {
+            color: var(--primary);
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--space-sm) var(--space-md);
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .button--primary {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        .button--primary:hover {
+            background-color: var(--primary-light);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: var(--space-xs);
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background-color: var(--primary);
+            margin: 5px 0;
+            transition: all 0.3s ease;
+        }
+
+        /* Page Hero */
+        .page-hero {
+            padding: 120px 0 60px;
+            background-color: var(--light-gray);
+            text-align: center;
+        }
+
+        .page-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: var(--space-sm);
+        }
+
+        .page-hero p {
+            font-size: 1.25rem;
+            color: var(--gray);
+        }
+
+        /* Services Section */
+        .services-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto var(--space-xl);
+        }
+
+        .services-tabs {
+            margin-top: var(--space-xl);
+        }
+
+        .tab-buttons {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-lg);
+        }
+
+        .tab-button {
+            padding: var(--space-sm) var(--space-lg);
+            background: none;
+            border: none;
+            border-bottom: 3px solid transparent;
+            font-family: var(--font-main);
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .tab-button.active {
+            border-bottom-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .service-detail {
+            display: flex;
+            gap: var(--space-xl);
+            align-items: center;
+        }
+
+        .service-text {
+            flex: 1;
+        }
+
+        .service-image {
+            flex: 1;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .feature-list {
+            list-style: none;
+            margin: var(--space-md) 0;
+        }
+
+        .feature-list li {
+            padding: var(--space-sm) 0;
+            position: relative;
+            padding-left: var(--space-lg);
+        }
+
+        .feature-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-weight: bold;
+        }
+
+        /* Benefits Section */
+        .benefits-section {
+            background-color: var(--light-gray);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-lg);
+            margin-top: var(--space-xl);
+        }
+
+        .benefit-card {
+            background-color: var(--white);
+            border-radius: var(--radius-md);
+            padding: var(--space-lg);
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .benefit-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto var(--space-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(26, 58, 111, 0.1);
+            border-radius: 50%;
+        }
+
+        /* ================ */
+        /* RESPONSIVE */
+        /* ================ */
+        @media (max-width: 992px) {
+            .service-detail {
+                flex-direction: column;
+            }
+            
+            .service-image {
+                order: -1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav {
+                position: fixed;
+                top: 80px;
+                right: -100%;
+                width: 80%;
+                max-width: 300px;
+                height: calc(100vh - 80px);
+                background-color: var(--white);
+                box-shadow: var(--shadow-lg);
+                transition: right 0.3s ease;
+                padding: var(--space-xl);
+            }
+            
+            .nav.active {
+                right: 0;
+            }
+            
+            .nav__list {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .hamburger.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+            
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .hamburger.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(5px, -5px);
+            }
+            
+            .tab-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .page-hero {
+                padding: 100px 0 40px;
+            }
+            
+            .page-hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Header -->
+    <!-- Header with Navigation -->
     <header class="header">
         <div class="container">
             <a href="index.html" class="logo">
-                <img src="assets/logo.svg" alt="LU Ally's Guesthouse and Transport" width="180" height="40">
+                <img src="assets/logo.svg" alt="LU Ally's Guesthouse and Transport">
             </a>
             
             <nav class="nav">
@@ -35,11 +401,11 @@
                     <li><a href="services.html" class="nav__link active">Services</a></li>
                     <li><a href="about.html" class="nav__link">About</a></li>
                     <li><a href="guesthouse.html" class="nav__link">Guesthouse</a></li>
-                    <li><a href="#contact" class="nav__link">Contact</a></li>
+                    <li><a href="contact.html" class="nav__link">Contact</a></li>
                 </ul>
             </nav>
             
-            <a href="#contact" class="button button--primary">Get Quote</a>
+            <a href="contact.html" class="button button--primary">Get Quote</a>
             
             <button class="hamburger" aria-label="Toggle menu">
                 <span></span>
@@ -52,33 +418,29 @@
     <!-- Page Hero -->
     <section class="page-hero">
         <div class="container">
-            <h1>Transport Services</h1>
+            <h1>Our Services</h1>
             <p>Reliable, safe, and efficient transport solutions for the Northern Cape</p>
         </div>
     </section>
 
-    <!-- Services Overview -->
-    <section class="section services-page">
+    <!-- Services Section -->
+    <section class="section">
         <div class="container">
-            <div class="section__header">
-                <span class="section__subtitle">Our Offerings</span>
-                <h2 class="section__title">Comprehensive Transport Solutions</h2>
-            </div>
-            
-            <div class="services-page__intro">
+            <div class="services-intro">
+                <h2>Comprehensive Transport Solutions</h2>
                 <p>With a fleet of well-maintained vehicles and experienced operators, LU Ally's provides professional transport services tailored to the mining and construction industries. Our BBBEE Level 1 certification ensures your procurement goals are met while receiving top-quality service.</p>
             </div>
             
-            <div class="services-page__tabs">
+            <div class="services-tabs">
                 <div class="tab-buttons">
                     <button class="tab-button active" data-tab="tipping">Site Tipping</button>
                     <button class="tab-button" data-tab="fleet">Yellow Fleet</button>
                     <button class="tab-button" data-tab="passenger">Passenger Transport</button>
                 </div>
                 
-                <div class="tab-content active" id="tipping">
-                    <div class="tab-content__grid">
-                        <div class="tab-content__text">
+                <div id="tipping" class="tab-content active">
+                    <div class="service-detail">
+                        <div class="service-text">
                             <h3>Site Tipping Trucks</h3>
                             <p>Our specialty lies in site tipper transportation, with a fleet designed to handle the demanding requirements of mining and construction operations. We've diversified our fleet to include specialty trailers to move a variety of unique commodities.</p>
                             
@@ -90,18 +452,18 @@
                                 <li>Backed by comprehensive insurance</li>
                             </ul>
                             
-                            <a href="#contact" class="button button--primary">Request Quote</a>
+                            <a href="contact.html" class="button button--primary">Request Quote</a>
                         </div>
                         
-                        <div class="tab-content__image">
+                        <div class="service-image">
                             <img src="assets/tipping-service.jpg" alt="Site tipping truck in operation" loading="lazy">
                         </div>
                     </div>
                 </div>
                 
-                <div class="tab-content" id="fleet">
-                    <div class="tab-content__grid">
-                        <div class="tab-content__text">
+                <div id="fleet" class="tab-content">
+                    <div class="service-detail">
+                        <div class="service-text">
                             <h3>Yellow Fleet Equipment</h3>
                             <p>We provide complete load and haul operation services with an experienced technical team for open cast mining and underground activities. Our equipment is regularly maintained to ensure maximum uptime.</p>
                             
@@ -113,18 +475,18 @@
                                 <li>Sourcing available for unique requirements</li>
                             </ul>
                             
-                            <a href="#contact" class="button button--primary">Inquire About Availability</a>
+                            <a href="contact.html" class="button button--primary">Inquire About Availability</a>
                         </div>
                         
-                        <div class="tab-content__image">
-                            <img src="assets/yellow-fleet-service.jpg" alt="Yellow fleet equipment" loading="lazy">
+                        <div class="service-image">
+                            <img src="assets/yellow-fleet.jpg" alt="Yellow fleet equipment" loading="lazy">
                         </div>
                     </div>
                 </div>
                 
-                <div class="tab-content" id="passenger">
-                    <div class="tab-content__grid">
-                        <div class="tab-content__text">
+                <div id="passenger" class="tab-content">
+                    <div class="service-detail">
+                        <div class="service-text">
                             <h3>Passenger Transport</h3>
                             <p>Safe and reliable employee transport solutions ranging from small groups to larger crews. Our vehicles are maintained to the highest safety standards.</p>
                             
@@ -136,11 +498,11 @@
                                 <li>Experienced, certified drivers</li>
                             </ul>
                             
-                            <a href="#contact" class="button button--primary">Arrange Transport</a>
+                            <a href="contact.html" class="button button--primary">Arrange Transport</a>
                         </div>
                         
-                        <div class="tab-content__image">
-                            <img src="assets/passenger-service.jpg" alt="Passenger transport vehicle" loading="lazy">
+                        <div class="service-image">
+                            <img src="assets/passenger-transport.jpg" alt="Passenger transport vehicle" loading="lazy">
                         </div>
                     </div>
                 </div>
@@ -148,42 +510,42 @@
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section class="section features">
+    <!-- Benefits Section -->
+    <section class="section benefits-section">
         <div class="container">
-            <div class="section__header">
-                <span class="section__subtitle">Why Choose Us</span>
-                <h2 class="section__title">Our Service Advantages</h2>
+            <div class="section-header">
+                <h2>Why Choose Our Services</h2>
+                <p>We go beyond just transportation to provide complete solutions</p>
             </div>
             
-            <div class="features__grid">
-                <div class="feature-card">
-                    <div class="feature-card__icon">
-                        <img src="assets/icons/tracking.svg" alt="Tracking icon" width="48" height="48">
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <img src="assets/icons/tracking.svg" alt="Tracking" width="30">
                     </div>
                     <h3>Real-Time Tracking</h3>
-                    <p>Our custom tracking system allows us to monitor your shipments every step of the way.</p>
+                    <p>Monitor your shipments every step of the way with our custom tracking system.</p>
                 </div>
                 
-                <div class="feature-card">
-                    <div class="feature-card__icon">
-                        <img src="assets/icons/safety.svg" alt="Safety icon" width="48" height="48">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <img src="assets/icons/safety.svg" alt="Safety" width="30">
                     </div>
                     <h3>Safety First</h3>
                     <p>Regular driver training and vehicle maintenance ensure safe operations.</p>
                 </div>
                 
-                <div class="feature-card">
-                    <div class="feature-card__icon">
-                        <img src="assets/icons/reliability.svg" alt="Reliability icon" width="48" height="48">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <img src="assets/icons/reliability.svg" alt="Reliability" width="30">
                     </div>
                     <h3>Reliability</h3>
                     <p>We maintain backup vehicles to prevent service interruptions.</p>
                 </div>
                 
-                <div class="feature-card">
-                    <div class="feature-card__icon">
-                        <img src="assets/icons/bbbee.svg" alt="BBBEE icon" width="48" height="48">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <img src="assets/icons/bbbee.svg" alt="BBBEE" width="30">
                     </div>
                     <h3>BBBEE Level 1</h3>
                     <p>100% black woman-owned business supporting your procurement goals.</p>
@@ -192,75 +554,37 @@
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="cta">
-        <div class="container">
-            <h2>Need Reliable Transport Solutions?</h2>
-            <p>Contact us today to discuss your specific requirements.</p>
-            <a href="#contact" class="button button--primary button--large">Get in Touch</a>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer__grid">
-                <div class="footer__col">
-                    <img src="assets/logo-light.svg" alt="LU Ally's" width="160" height="36">
-                    <p>Providing premium transport and accommodation services in Northern Cape since 2013.</p>
-                </div>
-                
-                <div class="footer__col">
-                    <h3>Services</h3>
-                    <ul>
-                        <li><a href="services.html">Site Tipping Trucks</a></li>
-                        <li><a href="services.html">Yellow Fleet</a></li>
-                        <li><a href="guesthouse.html">Guesthouse</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer__col">
-                    <h3>Company</h3>
-                    <ul>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="about.html">Our Team</a></li>
-                        <li><a href="#">Careers</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer__col">
-                    <h3>Legal</h3>
-                    <ul>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Service</a></li>
-                        <li><a href="#">BBBEE Certificate</a></li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="footer__bottom">
-                <p>&copy; 2023 LU Ally's Guesthouse and Transport. All rights reserved.</p>
-                <p>Company Registration: 2013/178702/07</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Scripts -->
-    <script src="js/gsap.min.js"></script>
-    <script src="js/main.js"></script>
-    
-    <!-- Services Page Script -->
     <script>
+        // Mobile menu toggle
         document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.querySelector('.hamburger');
+            const nav = document.querySelector('.nav');
+            
+            if (hamburger && nav) {
+                hamburger.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    nav.classList.toggle('active');
+                });
+            }
+            
+            // Close mobile menu when clicking on a link
+            const navLinks = document.querySelectorAll('.nav__link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    if (nav.classList.contains('active')) {
+                        hamburger.classList.remove('active');
+                        nav.classList.remove('active');
+                    }
+                });
+            });
+            
             // Tab functionality
             const tabButtons = document.querySelectorAll('.tab-button');
             
             tabButtons.forEach(button => {
                 button.addEventListener('click', function() {
                     // Remove active class from all buttons and content
-                    document.querySelectorAll('.tab-button').forEach(btn => {
-                        btn.classList.remove('active');
-                    });
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
                     document.querySelectorAll('.tab-content').forEach(content => {
                         content.classList.remove('active');
                     });
@@ -271,6 +595,26 @@
                     // Show corresponding content
                     const tabId = this.getAttribute('data-tab');
                     document.getElementById(tabId).classList.add('active');
+                });
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        const headerHeight = document.querySelector('.header').offsetHeight;
+                        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                        
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
                 });
             });
         });

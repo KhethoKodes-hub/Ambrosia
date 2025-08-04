@@ -3,31 +3,328 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About LU Ally's | Black Woman-Owned Transport & Accommodation</title>
-    <meta name="description" content="Learn about LU Ally's journey since 2013 - a 100% black woman-owned transport and guesthouse business in Postmasburg, Northern Cape.">
-    
-    <!-- Preload resources -->
-    <link rel="preload" href="css/main.css" as="style">
-    <link rel="preload" href="js/gsap.min.js" as="script">
-    
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
-    
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/main.css">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <title>About Us | LU Ally's Guesthouse & Transport</title>
+    <style>
+        /* ================ */
+        /* VARIABLES */
+        /* ================ */
+        :root {
+            /* Colors */
+            --primary: #1A3A6F;
+            --primary-light: #2D5AA6;
+            --secondary: #E8B959;
+            --dark: #1E1E1E;
+            --gray: #6B7280;
+            --light-gray: #F3F4F6;
+            --white: #FFFFFF;
+            
+            /* Typography */
+            --font-main: 'Manrope', sans-serif;
+            --font-heading: 'Playfair Display', serif;
+            
+            /* Spacing */
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 1.5rem;
+            --space-lg: 2rem;
+            --space-xl: 3rem;
+            
+            /* Border radius */
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 16px;
+            
+            /* Shadows */
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        /* ================ */
+        /* BASE STYLES */
+        /* ================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            padding-top: 80px; /* For fixed header */
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-heading);
+            line-height: 1.2;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-md);
+        }
+
+        section {
+            padding: var(--space-xl) 0;
+        }
+
+        /* ================ */
+        /* COMPONENTS */
+        /* ================ */
+        /* Header/Navbar */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 80px;
+            background-color: var(--white);
+            box-shadow: var(--shadow-sm);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+        }
+
+        .header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            height: 100%;
+        }
+
+        .logo img {
+            max-height: 40px;
+            width: auto;
+        }
+
+        .nav__list {
+            display: flex;
+            gap: var(--space-lg);
+            list-style: none;
+        }
+
+        .nav__link {
+            font-weight: 600;
+            position: relative;
+            padding: var(--space-xs) 0;
+            color: var(--dark);
+        }
+
+        .nav__link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav__link:hover::after {
+            width: 100%;
+        }
+
+        .nav__link.active {
+            color: var(--primary);
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--space-sm) var(--space-md);
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .button--primary {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        .button--primary:hover {
+            background-color: var(--primary-light);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: var(--space-xs);
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background-color: var(--primary);
+            margin: 5px 0;
+            transition: all 0.3s ease;
+        }
+
+        /* Page Hero */
+        .page-hero {
+            padding: 120px 0 60px;
+            background-color: var(--light-gray);
+            text-align: center;
+        }
+
+        .page-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: var(--space-sm);
+        }
+
+        .page-hero p {
+            font-size: 1.25rem;
+            color: var(--gray);
+        }
+
+        /* About Content */
+        .about-content {
+            display: flex;
+            gap: var(--space-xl);
+            align-items: center;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-image {
+            flex: 1;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .mission-vision {
+            margin-top: var(--space-xl);
+        }
+
+        /* Team Section */
+        .team-section {
+            background-color: var(--light-gray);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-lg);
+            margin-top: var(--space-xl);
+        }
+
+        .team-member {
+            background-color: var(--white);
+            border-radius: var(--radius-md);
+            padding: var(--space-lg);
+            box-shadow: var(--shadow-sm);
+            text-align: center;
+        }
+
+        .team-member img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto var(--space-md);
+        }
+
+        /* ================ */
+        /* RESPONSIVE */
+        /* ================ */
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav {
+                position: fixed;
+                top: 80px;
+                right: -100%;
+                width: 80%;
+                max-width: 300px;
+                height: calc(100vh - 80px);
+                background-color: var(--white);
+                box-shadow: var(--shadow-lg);
+                transition: right 0.3s ease;
+                padding: var(--space-xl);
+            }
+            
+            .nav.active {
+                right: 0;
+            }
+            
+            .nav__list {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .hamburger.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+            
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .hamburger.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(5px, -5px);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .page-hero {
+                padding: 100px 0 40px;
+            }
+            
+            .page-hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Header -->
+    <!-- Header with Navigation -->
     <header class="header">
         <div class="container">
             <a href="index.html" class="logo">
-                <img src="assets/logo.svg" alt="LU Ally's Guesthouse and Transport" width="180" height="40">
+                <img src="assets/logo.svg" alt="LU Ally's Guesthouse and Transport">
             </a>
             
             <nav class="nav">
@@ -35,11 +332,11 @@
                     <li><a href="services.html" class="nav__link">Services</a></li>
                     <li><a href="about.html" class="nav__link active">About</a></li>
                     <li><a href="guesthouse.html" class="nav__link">Guesthouse</a></li>
-                    <li><a href="#contact" class="nav__link">Contact</a></li>
+                    <li><a href="contact.html" class="nav__link">Contact</a></li>
                 </ul>
             </nav>
             
-            <a href="#contact" class="button button--primary">Get Quote</a>
+            <a href="contact.html" class="button button--primary">Get Quote</a>
             
             <button class="hamburger" aria-label="Toggle menu">
                 <span></span>
@@ -58,177 +355,107 @@
     </section>
 
     <!-- About Content -->
-    <section class="section about-page">
+    <section class="section">
         <div class="container">
-            <div class="about-page__content">
-                <div class="about-page__text">
+            <div class="about-content">
+                <div class="about-text">
                     <h2>Built on Excellence</h2>
                     <p>Founded in 2013 by Alison Neels, LU Ally's began as a small transport operation serving local mining companies in Postmasburg. Recognizing the need for both reliable transport and quality accommodation in the area, Alison expanded the business to include guesthouse services.</p>
-                    
                     <p>What started as a single tipper truck has grown into a multi-service company with a diverse fleet and luxury accommodation options. Our journey reflects our commitment to excellence and our deep understanding of our clients' needs in the Tsantsabane area.</p>
                     
-                    <h3>Our Mission</h3>
-                    <p>To be the leading female-owned transport and accommodation provider in the Northern Cape by delivering reliable, safe, and cost-effective services that exceed client expectations.</p>
-                    
-                    <h3>Our Vision</h3>
-                    <p>To transform the transport and hospitality landscape through innovative solutions while empowering our community and maintaining the highest standards of service.</p>
+                    <div class="mission-vision">
+                        <h3>Our Mission</h3>
+                        <p>To be the leading female-owned transport and accommodation provider in the Northern Cape by delivering reliable, safe, and cost-effective services that exceed client expectations.</p>
+                        
+                        <h3>Our Vision</h3>
+                        <p>To transform the transport and hospitality landscape through innovative solutions while empowering our community and maintaining the highest standards of service.</p>
+                    </div>
                 </div>
                 
-                <div class="about-page__image">
-                    <img src="assets/about-team.jpg" alt="LU Ally's team members" loading="lazy">
-                    <div class="image-caption">Our dedicated team at the Postmasburg office</div>
+                <div class="about-image">
+                    <img src="assets/about-team.jpg" alt="Our team at the Postmasburg office" loading="lazy">
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Team Section -->
-    <section class="section team">
+    <section class="section team-section">
         <div class="container">
-            <div class="section__header">
-                <span class="section__subtitle">Leadership</span>
-                <h2 class="section__title">Meet Our Team</h2>
+            <div class="section-header">
+                <span class="section-subtitle">Leadership</span>
+                <h2 class="section-title">Meet Our Team</h2>
             </div>
             
-            <div class="team__grid">
+            <div class="team-grid">
                 <div class="team-member">
-                    <div class="team-member__image">
-                        <img src="assets/team-alison.jpg" alt="Alison Neels" loading="lazy">
-                    </div>
+                    <img src="assets/MrsNeels.png" alt="Alison Neels">
                     <h3>Alison Neels</h3>
-                    <p class="team-member__position">CEO & Founder</p>
-                    <p class="team-member__bio">With over 15 years in the transport industry, Alison founded LU Ally's to provide reliable services while creating opportunities for local employment.</p>
+                    <p class="position">CEO & Founder</p>
+                    <p class="bio">With over 15 years in the transport industry, Alison founded LU Ally's to provide reliable services while creating opportunities for local employment.</p>
                 </div>
                 
                 <div class="team-member">
-                    <div class="team-member__image">
-                        <img src="assets/team-davids.jpg" alt="Mr J. Davids" loading="lazy">
-                    </div>
+                    <img src="assets/MrDavids.png" alt="Mr J. Davids">
                     <h3>Mr J. Davids</h3>
-                    <p class="team-member__position">Project Manager</p>
-                    <p class="team-member__bio">Oversees all transport operations with a focus on safety and efficiency, ensuring timely delivery of goods.</p>
+                    <p class="position">Project Manager</p>
+                    <p class="bio">Oversees all transport operations with a focus on safety and efficiency, ensuring timely delivery of goods.</p>
                 </div>
                 
                 <div class="team-member">
-                    <div class="team-member__image">
-                        <img src="assets/team-stoffels.jpg" alt="Mr D. Stoffels" loading="lazy">
-                    </div>
+                    <img src="assets/MrStoffels.png" alt="Mr D. Stoffels">
                     <h3>Mr D. Stoffels</h3>
-                    <p class="team-member__position">Human Resources</p>
-                    <p class="team-member__bio">Manages our team of 12 dedicated staff members, ensuring we maintain high service standards.</p>
-                </div>
-                
-                <div class="team-member">
-                    <div class="team-member__image">
-                        <img src="assets/team-mocumi.jpg" alt="T.V. Mocumi" loading="lazy">
-                    </div>
-                    <h3>T.V. Mocumi</h3>
-                    <p class="team-member__position">Operations Manager</p>
-                    <p class="team-member__bio">Coordinates daily activities across both transport and guesthouse divisions.</p>
+                    <p class="position">Human Resources</p>
+                    <p class="bio">Manages our team of dedicated staff members, ensuring we maintain high service standards.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Values Section -->
-    <section class="section values">
-        <div class="container">
-            <div class="section__header">
-                <span class="section__subtitle">What We Stand For</span>
-                <h2 class="section__title">Our Core Values</h2>
-            </div>
+    <script>
+        // Mobile menu toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.querySelector('.hamburger');
+            const nav = document.querySelector('.nav');
             
-            <div class="values__grid">
-                <div class="value-card">
-                    <div class="value-card__icon">
-                        <img src="assets/icons/integrity.svg" alt="Integrity icon" width="48" height="48">
-                    </div>
-                    <h3>Integrity</h3>
-                    <p>We conduct all business with honesty and transparency, building trust with every interaction.</p>
-                </div>
-                
-                <div class="value-card">
-                    <div class="value-card__icon">
-                        <img src="assets/icons/excellence.svg" alt="Excellence icon" width="48" height="48">
-                    </div>
-                    <h3>Excellence</h3>
-                    <p>We strive for the highest standards in all our services, continuously improving our offerings.</p>
-                </div>
-                
-                <div class="value-card">
-                    <div class="value-card__icon">
-                        <img src="assets/icons/empowerment.svg" alt="Empowerment icon" width="48" height="48">
-                    </div>
-                    <h3>Empowerment</h3>
-                    <p>As a black woman-owned business, we're committed to creating opportunities in our community.</p>
-                </div>
-                
-                <div class="value-card">
-                    <div class="value-card__icon">
-                        <img src="assets/icons/reliability.svg" alt="Reliability icon" width="48" height="48">
-                    </div>
-                    <h3>Reliability</h3>
-                    <p>Clients can count on us to deliver on our promises, every single time.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta">
-        <div class="container">
-            <h2>Ready to Experience Our Services?</h2>
-            <p>Contact us today to discuss your transport or accommodation needs.</p>
-            <a href="#contact" class="button button--primary button--large">Get in Touch</a>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer__grid">
-                <div class="footer__col">
-                    <img src="assets/logo-light.svg" alt="LU Ally's" width="160" height="36">
-                    <p>Providing premium transport and accommodation services in Northern Cape since 2013.</p>
-                </div>
-                
-                <div class="footer__col">
-                    <h3>Services</h3>
-                    <ul>
-                        <li><a href="services.html">Site Tipping Trucks</a></li>
-                        <li><a href="services.html">Yellow Fleet</a></li>
-                        <li><a href="guesthouse.html">Guesthouse</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer__col">
-                    <h3>Company</h3>
-                    <ul>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="about.html">Our Team</a></li>
-                        <li><a href="#">Careers</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer__col">
-                    <h3>Legal</h3>
-                    <ul>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Service</a></li>
-                        <li><a href="#">BBBEE Certificate</a></li>
-                    </ul>
-                </div>
-            </div>
+            if (hamburger && nav) {
+                hamburger.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    nav.classList.toggle('active');
+                });
+            }
             
-            <div class="footer__bottom">
-                <p>&copy; 2023 LU Ally's Guesthouse and Transport. All rights reserved.</p>
-                <p>Company Registration: 2013/178702/07</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Scripts -->
-    <script src="js/gsap.min.js"></script>
-    <script src="js/main.js"></script>
+            // Close mobile menu when clicking on a link
+            const navLinks = document.querySelectorAll('.nav__link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    if (nav.classList.contains('active')) {
+                        hamburger.classList.remove('active');
+                        nav.classList.remove('active');
+                    }
+                });
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        const headerHeight = document.querySelector('.header').offsetHeight;
+                        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                        
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
