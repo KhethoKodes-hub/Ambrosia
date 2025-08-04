@@ -161,25 +161,3 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Fixed header spacing adjustment
-    function adjustHeaderSpacing() {
-        const header = document.querySelector('.header');
-        if (header) {
-            const headerHeight = header.offsetHeight;
-            document.body.style.paddingTop = headerHeight + 'px';
-            
-            // Adjust page-hero spacing if exists
-            const pageHero = document.querySelector('.page-hero');
-            if (pageHero) {
-                pageHero.style.paddingTop = (headerHeight + 40) + 'px';
-            }
-        }
-    }
-    
-    // Run on load and resize
-    adjustHeaderSpacing();
-    window.addEventListener('resize', adjustHeaderSpacing);
-    
-    // Your existing JavaScript...
-});
