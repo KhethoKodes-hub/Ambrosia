@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en-ZA">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us | LU Ally's</title>
+  <link rel="stylesheet" href="/css/main.min.css">
+</head>
+<body>
+  <main class="container" style="padding: 2rem; max-width: 720px; margin: auto;">
+    <h1>Contact LU Ally's</h1>
+
+    <p>We’d love to hear from you. Please reach out to us using the details below or send us a message using the form.</p>
+
+    <h2>Contact Details</h2>
+    <ul>
+      <li><strong>Phone:</strong> <a href="tel:+27742243219">+27 74 224 3219</a></li>
+      <li><strong>Email:</strong> <a href="mailto:info@luallys.co.za">info@luallys.co.za</a></li>
+      <li><strong>Address:</strong> 25 Van Wyk Street, West End, Postmasburg, 8420</li>
+    </ul>
+
+    <h2>Send Us a Message</h2>
+    <form action="mailto:info@luallys.co.za" method="POST" enctype="text/plain" style="display: flex; flex-direction: column; gap: 1rem;">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" placeholder="Your Message" rows="6" required></textarea>
+      <button type="submit" class="btn">Send Message</button>
+    </form>
+  </main>
+
+
+  <div id="cookieConsent" style="display: none; position: fixed; bottom: 0; left: 0; right: 0; background: #003366; color: #fff; padding: 1rem; font-size: 0.95rem; z-index: 9999;">
+  <div style="max-width: 960px; margin: auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;">
+    <span>
+      We use cookies to improve your experience and deliver personalized content. By using this site, you consent to our use of cookies in accordance with the <a href="/privacy.html" style="color: #ffc107; text-decoration: underline;">POPIA policy</a>.
+    </span>
+    <button id="acceptCookies" style="margin-top: 0.5rem; padding: 0.5rem 1rem; background: #ffc107; color: #003366; border: none; border-radius: 5px; font-weight: bold; cursor: pointer;">
+      Accept
+    </button>
+  </div>
+</div>
+
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    if (!localStorage.getItem('cookiesAccepted')) {
+      document.getElementById('cookieConsent').style.display = 'block';
+    }
+
+    document.getElementById('acceptCookies').addEventListener('click', function () {
+      localStorage.setItem('cookiesAccepted', 'true');
+      document.getElementById('cookieConsent').style.display = 'none';
+    });
+  });
+</script>
+
+</body>
+</html>

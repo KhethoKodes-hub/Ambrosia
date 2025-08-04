@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en-ZA">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Services | LU Ally's</title>
+  <link rel="stylesheet" href="/css/main.min.css">
+</head>
+<body>
+  <main class="container" style="padding: 2rem; max-width: 960px; margin: auto;">
+    <h1>Our Services</h1>
+
+    <section>
+      <h2>Transport Services</h2>
+      <p>We offer heavy-duty site-tipping trucks, yellow fleet machinery, and certified drivers for mining, construction, and corporate projects.</p>
+      <ul>
+        <li>Site Tipping Trucks</li>
+        <li>Yellow Fleet Hire</li>
+        <li>Logistics & Scheduling</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Accommodation Services</h2>
+      <p>Our guesthouse in Postmasburg offers modern rooms, safe parking, and top-tier hospitality for business travelers and groups.</p>
+      <ul>
+        <li>Luxury double and single rooms</li>
+        <li>Group and contractor accommodation</li>
+        <li>Free Wi-Fi, TV, and breakfast available</li>
+      </ul>
+    </section>
+
+    <p><a href="/contact.html" class="btn">Contact Us to Book</a></p>
+  </main>
+
+
+  <div id="cookieConsent" style="display: none; position: fixed; bottom: 0; left: 0; right: 0; background: #003366; color: #fff; padding: 1rem; font-size: 0.95rem; z-index: 9999;">
+  <div style="max-width: 960px; margin: auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;">
+    <span>
+      We use cookies to improve your experience and deliver personalized content. By using this site, you consent to our use of cookies in accordance with the <a href="/privacy.html" style="color: #ffc107; text-decoration: underline;">POPIA policy</a>.
+    </span>
+    <button id="acceptCookies" style="margin-top: 0.5rem; padding: 0.5rem 1rem; background: #ffc107; color: #003366; border: none; border-radius: 5px; font-weight: bold; cursor: pointer;">
+      Accept
+    </button>
+  </div>
+</div>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    if (!localStorage.getItem('cookiesAccepted')) {
+      document.getElementById('cookieConsent').style.display = 'block';
+    }
+
+    document.getElementById('acceptCookies').addEventListener('click', function () {
+      localStorage.setItem('cookiesAccepted', 'true');
+      document.getElementById('cookieConsent').style.display = 'none';
+    });
+  });
+</script>
+
+</body>
+</html>

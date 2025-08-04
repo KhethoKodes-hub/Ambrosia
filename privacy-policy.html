@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en-ZA">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy | LU Ally's</title>
+  <meta name="description" content="Our full privacy policy as required by POPIA and GDPR. See how LU Ally's handles your personal information.">
+  <link rel="stylesheet" href="/css/main.min.css">
+</head>
+<body>
+  <main class="container" style="max-width: 900px; margin: auto; padding: 2rem;">
+    <h1>Privacy Policy</h1>
+
+    <p><strong>Last Updated:</strong> 04 August 2025</p>
+
+    <h2>1. Introduction</h2>
+    <p>This Privacy Policy explains how LU Ally's collects, uses, and protects your personal information in compliance with the Protection of Personal Information Act (POPIA) and the General Data Protection Regulation (GDPR).</p>
+
+    <h2>2. Information We Collect</h2>
+    <ul>
+      <li>Contact details (name, email, phone number)</li>
+      <li>Booking and payment information</li>
+      <li>Device/browser information via cookies</li>
+    </ul>
+
+    <h2>3. Use of Information</h2>
+    <ul>
+      <li>To provide and manage services</li>
+      <li>To communicate with you about your bookings</li>
+      <li>To comply with legal obligations</li>
+    </ul>
+
+    <h2>4. Your Rights</h2>
+    <p>You may access, correct, or delete your data by contacting us at <a href="mailto:info@luallys.co.za">info@luallys.co.za</a>.</p>
+
+    <h2>5. Cookies</h2>
+    <p>We use cookies for website analytics and functionality. You can manage cookies in your browser settings.</p>
+
+    <h2>6. Security</h2>
+    <p>We implement standard security measures to protect your data.</p>
+
+    <h2>7. Changes to This Policy</h2>
+    <p>We may update this policy and will notify you via our website.</p>
+  </main>
+
+  <div id="cookieConsent" style="display: none; position: fixed; bottom: 0; left: 0; right: 0; background: #003366; color: #fff; padding: 1rem; font-size: 0.95rem; z-index: 9999;">
+  <div style="max-width: 960px; margin: auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;">
+    <span>
+      We use cookies to improve your experience and deliver personalized content. By using this site, you consent to our use of cookies in accordance with the <a href="/privacy.html" style="color: #ffc107; text-decoration: underline;">POPIA policy</a>.
+    </span>
+    <button id="acceptCookies" style="margin-top: 0.5rem; padding: 0.5rem 1rem; background: #ffc107; color: #003366; border: none; border-radius: 5px; font-weight: bold; cursor: pointer;">
+      Accept
+    </button>
+  </div>
+</div>
+
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    if (!localStorage.getItem('cookiesAccepted')) {
+      document.getElementById('cookieConsent').style.display = 'block';
+    }
+
+    document.getElementById('acceptCookies').addEventListener('click', function () {
+      localStorage.setItem('cookiesAccepted', 'true');
+      document.getElementById('cookieConsent').style.display = 'none';
+    });
+  });
+</script>
+
+</body>
+</html>

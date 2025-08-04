@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en-ZA">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms of Service | LU Ally's</title>
+  <meta name="description" content="These are the official Terms of Service for using LU Ally's website and booking our services.">
+  <link rel="stylesheet" href="/css/main.min.css">
+</head>
+<body>
+  <main class="container" style="max-width: 900px; margin: auto; padding: 2rem;">
+    <h1>Terms of Service</h1>
+
+    <p><strong>Effective Date:</strong> 04 August 2025</p>
+
+    <h2>1. Use of Our Site</h2>
+    <p>By accessing or using our services, you agree to be bound by these Terms. Do not use our services if you disagree.</p>
+
+    <h2>2. Booking & Payments</h2>
+    <ul>
+      <li>All bookings require confirmation by email or phone.</li>
+      <li>Payments must be made upfront unless agreed otherwise.</li>
+    </ul>
+
+    <h2>3. Cancellations & Refunds</h2>
+    <p>Cancellations made within 48 hours of service may incur a fee. Contact us for rescheduling options.</p>
+
+    <h2>4. Liability</h2>
+    <p>LU Ally's is not liable for delays or cancellations due to unforeseen circumstances. We will always strive to find a solution.</p>
+
+    <h2>5. Governing Law</h2>
+    <p>This agreement is governed by the laws of South Africa.</p>
+  </main>
+
+
+  <div id="cookieConsent" style="display: none; position: fixed; bottom: 0; left: 0; right: 0; background: #003366; color: #fff; padding: 1rem; font-size: 0.95rem; z-index: 9999;">
+  <div style="max-width: 960px; margin: auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;">
+    <span>
+      We use cookies to improve your experience and deliver personalized content. By using this site, you consent to our use of cookies in accordance with the <a href="/privacy.html" style="color: #ffc107; text-decoration: underline;">POPIA policy</a>.
+    </span>
+    <button id="acceptCookies" style="margin-top: 0.5rem; padding: 0.5rem 1rem; background: #ffc107; color: #003366; border: none; border-radius: 5px; font-weight: bold; cursor: pointer;">
+      Accept
+    </button>
+  </div>
+</div>
+
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    if (!localStorage.getItem('cookiesAccepted')) {
+      document.getElementById('cookieConsent').style.display = 'block';
+    }
+
+    document.getElementById('acceptCookies').addEventListener('click', function () {
+      localStorage.setItem('cookiesAccepted', 'true');
+      document.getElementById('cookieConsent').style.display = 'none';
+    });
+  });
+</script>
+
+</body>
+</html>

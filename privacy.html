@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en-ZA">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Summary | LU Ally's</title>
+  <meta name="description" content="Learn how LU Ally's complies with the POPIA Act and protects your personal information.">
+  <link rel="canonical" href="https://www.luallys.co.za/privacy.html" />
+  <link rel="stylesheet" href="/css/main.min.css" />
+  <style>
+    body { font-family: sans-serif; background: #fff; color: #333; }
+    main { max-width: 900px; margin: auto; padding: 2rem; }
+    h1, h2 { color: #003366; }
+    ul { list-style: disc; padding-left: 1.5rem; }
+    a { color: #003366; text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Our Commitment to Your Privacy</h1>
+
+    <p>LU Ally's is committed to protecting your personal information in compliance with the <strong>Protection of Personal Information Act (POPIA)</strong> of South Africa.</p>
+
+    <h2>What Information We Collect</h2>
+    <ul>
+      <li>Full name, email address, and phone number</li>
+      <li>Booking details and accommodation preferences</li>
+      <li>Any communication or correspondence with us</li>
+    </ul>
+
+    <h2>Why We Collect It</h2>
+    <ul>
+      <li>To fulfill transport and accommodation bookings</li>
+      <li>To communicate with you and respond to queries</li>
+      <li>To meet legal and tax obligations</li>
+    </ul>
+
+    <h2>Your Rights Under POPIA</h2>
+    <ul>
+      <li>You can request access to your personal data</li>
+      <li>You can ask us to correct or delete your data</li>
+      <li>You can object to how we use your information</li>
+    </ul>
+
+    <h2>How We Protect Your Data</h2>
+    <p>We store personal data securely and do not share it with third parties unless required by law or necessary for service delivery (e.g. invoicing or compliance).</p>
+
+    <h2>Cookie Usage</h2>
+    <p>Our website may use cookies for performance and analytics. You can control this via your browser settings.</p>
+
+    <h2>Contact the Information Officer</h2>
+    <p>To exercise your rights or raise concerns, contact our Information Officer at <a href="mailto:info@luallys.co.za">info@luallys.co.za</a>.</p>
+
+    <p>For the full policy, visit our <a href="/privacy-policy.html">Privacy Policy</a>.</p>
+  </main>
+
+
+  <div id="cookieConsent" style="display: none; position: fixed; bottom: 0; left: 0; right: 0; background: #003366; color: #fff; padding: 1rem; font-size: 0.95rem; z-index: 9999;">
+  <div style="max-width: 960px; margin: auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;">
+    <span>
+      We use cookies to improve your experience and deliver personalized content. By using this site, you consent to our use of cookies in accordance with the <a href="/privacy.html" style="color: #ffc107; text-decoration: underline;">POPIA policy</a>.
+    </span>
+    <button id="acceptCookies" style="margin-top: 0.5rem; padding: 0.5rem 1rem; background: #ffc107; color: #003366; border: none; border-radius: 5px; font-weight: bold; cursor: pointer;">
+      Accept
+    </button>
+  </div>
+</div>
+
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    if (!localStorage.getItem('cookiesAccepted')) {
+      document.getElementById('cookieConsent').style.display = 'block';
+    }
+
+    document.getElementById('acceptCookies').addEventListener('click', function () {
+      localStorage.setItem('cookiesAccepted', 'true');
+      document.getElementById('cookieConsent').style.display = 'none';
+    });
+  });
+</script>
+
+</body>
+</html>

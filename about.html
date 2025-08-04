@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en-ZA">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us | LU Ally's</title>
+  <link rel="stylesheet" href="/css/main.min.css">
+</head>
+<body>
+  <main class="container" style="padding: 2rem; max-width: 960px; margin: auto;">
+    <h1>About LU Ally's</h1>
+    <p>LU Ally's is a proudly Black woman-owned business based in Postmasburg, Northern Cape. We specialise in safe, reliable, and professional transport and accommodation services for corporate and individual clients.</p>
+
+    <h2>Our Mission</h2>
+    <p>To offer dependable, high-quality service with integrity and a personal touch, while empowering our community and women in business.</p>
+
+    <h2>Our Team</h2>
+    <p>Our staff are trained professionals who value safety, hospitality, and service excellence. Whether you need industrial transport or a luxury guesthouse, we deliver with pride.</p>
+
+    <h2>Why Choose Us?</h2>
+    <ul>
+      <li>Local expertise and service</li>
+      <li>Reliable transport fleet including site-tipping trucks</li>
+      <li>Comfortable guesthouse accommodation</li>
+      <li>POPAA- and safety-compliant</li>
+    </ul>
+
+    <p><a href="/services.html" class="btn">View Our Services</a></p>
+  </main>
+
+
+  <div id="cookieConsent" style="display: none; position: fixed; bottom: 0; left: 0; right: 0; background: #003366; color: #fff; padding: 1rem; font-size: 0.95rem; z-index: 9999;">
+  <div style="max-width: 960px; margin: auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;">
+    <span>
+      We use cookies to improve your experience and deliver personalized content. By using this site, you consent to our use of cookies in accordance with the <a href="/privacy.html" style="color: #ffc107; text-decoration: underline;">POPIA policy</a>.
+    </span>
+    <button id="acceptCookies" style="margin-top: 0.5rem; padding: 0.5rem 1rem; background: #ffc107; color: #003366; border: none; border-radius: 5px; font-weight: bold; cursor: pointer;">
+      Accept
+    </button>
+  </div>
+</div>
+
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    if (!localStorage.getItem('cookiesAccepted')) {
+      document.getElementById('cookieConsent').style.display = 'block';
+    }
+
+    document.getElementById('acceptCookies').addEventListener('click', function () {
+      localStorage.setItem('cookiesAccepted', 'true');
+      document.getElementById('cookieConsent').style.display = 'none';
+    });
+  });
+</script>
+
+</body>
+</html>
