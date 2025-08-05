@@ -651,3 +651,28 @@ section {
         padding: var(--space-md);
     }
 }
+
+
+.logo {
+    
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.logo-img {
+    display: flex;
+    align-items: center;
+    max-height: 40px; 
+   /*overflow: hidden; 
+    width: 180px;
+    height: 10px;*/
+    
+}
+
