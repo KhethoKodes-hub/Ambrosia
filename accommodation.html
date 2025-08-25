@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accommodation - Ambrosia Logistics</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <link rel="icon" type="image/png" href="assets/AmbrosiaLogo.png">
+
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #e67e22;
+            --accent: #3498db;
+            --light: #f8f9fa;
+            --dark: #2c3e50;
+            --gradient-primary: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            --gradient-secondary: linear-gradient(135deg, #e67e22 0%, #f39c12 100%);
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: #333;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+        
+        /* Navigation */
+        .navbar {
+            background: var(--gradient-primary);
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .navbar-brand {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.8rem;
+        }
+        
+        .navbar-dark .navbar-nav .nav-link {
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-dark .navbar-nav .nav-link:hover {
+            color: var(--secondary);
+        }
+        
+        /* Hero Section */
+        .accommodation-hero {
+            background: var(--gradient-primary), url('https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 120px 0 80px;
+            margin-bottom: 50px;
+        }
+        
+        /* Section Styles */
+        .section-title {
+            position: relative;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background: var(--gradient-secondary);
+        }
+        
+        .section-title.center {
+            text-align: center;
+        }
+        
+        .section-title.center:after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* Room Cards */
+        .room-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            height: 100%;
+        }
+        
+        .room-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .room-img {
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .room-card:hover .room-img {
+            transform: scale(1.05);
+        }
+        
+        .room-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--gradient-secondary);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 1;
+        }
+        
+        /* Amenities */
+        .amenity-icon {
+            width: 60px;
+            height: 60px;
+            line-height: 60px;
+            border-radius: 50%;
+            background: rgba(230, 126, 34, 0.1);
+            color: var(--secondary);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        /* Testimonials */
+        .testimonial-card {
+            border-radius: 15px;
+            background: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 30px;
+            height: 100%;
+        }
+        
+        .testimonial-img {
+            width: 70px;
+            height: 70px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+        
+        /* Gallery */
+        .gallery-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+        
+        .gallery-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover .gallery-img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(44, 62, 80, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        
+        /* Booking Form */
+        .booking-form {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 30px;
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--dark);
+            color: white;
+            padding: 80px 0 30px;
+        }
+        
+        .footer a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer a:hover {
+            color: var(--secondary);
+        }
+        
+        .social-icons a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .testimonial-content {
+                text-align: center;
+                margin-top: 15px;
+            }
+            
+            .testimonial-img {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <span class="text-warning">                <span class="text-warning">  <img src="assets/AmbrosiaLogo.png" alt="Logo" width="80" height="80" class="d-inline-block align-text-top">
+
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="fleet.html">Our Fleet</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="accommodation.html">Accommodation</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="accommodation-hero">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <h1 class="display-4 fw-bold mb-4">Comfortable Accommodation</h1>
+                    <p class="lead">Your home away from home in the heart of Postmasburg</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Accommodation Intro -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <h2 class="section-title">Our Guesthouse</h2>
+                    <p class="lead">Experience comfort and convenience at Ambrosia Logistics Guesthouse</p>
+                    <p>Since 2013, we've been providing affordable, comfortable accommodation for visitors to Postmasburg and the surrounding areas. Our guesthouse offers a perfect blend of home-like comfort and hotel-like amenities, making it the ideal choice for business travelers, contractors, and tourists alike.</p>
+                    <p>Located just a short walk from the Sibilos shopping mall, our guesthouse provides easy access to local amenities while offering a peaceful retreat after a long day.</p>
+                    <div class="d-flex gap-3 mt-4">
+                        <a href="#rooms" class="btn btn-primary">View Rooms</a>
+                        <!--<a href="#booking" class="btn btn-outline-dark">Check Availability</a>-->
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <img src="assets/guesttowel.png" alt="Our Guesthouse" class="img-fluid rounded shadow">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Room Types -->
+    <section id="rooms" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title center">Accommodation Options</h2>
+            <p class="text-center lead mb-5">We offer a variety of comfortable lodging options to suit your needs</p>
+            
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="card h-100 room-card">
+                        <span class="room-badge">Most Popular</span>
+                        <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="card-img-top room-img" alt="Standard Room">
+                        <div class="card-body">
+                            <h3 class="card-title">Standard Single Rooms</h3>
+                            <p class="text-secondary">Perfect for individual travelers or contractors</p>
+                            <p class="card-text">Comfortable and affordable single occupancy rooms with all the essential amenities for a pleasant stay.</p>
+                            <ul class="list-group list-group-flush mb-3">
+                                <li class="list-group-item"><i class="fas fa-bed me-2 text-primary"></i> Single bed</li>
+                                <li class="list-group-item"><i class="fas fa-bath me-2 text-primary"></i> En-suite bathroom</li>
+                                <li class="list-group-item"><i class="fas fa-tv me-2 text-primary"></i> Flat-screen TV</li>
+                                <li class="list-group-item"><i class="fas fa-wifi me-2 text-primary"></i> Free Wi-Fi</li>
+                            </ul>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <!--<h4 class="text-primary mb-0">From R450/night</h4>-->
+                                <a href="#booking" class="btn btn-primary">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="card h-100 room-card">
+                        <img src="https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="card-img-top room-img" alt="Family Room">
+                        <div class="card-body">
+                            <h3 class="card-title">Family Units</h3>
+                            <p class="text-secondary">Spacious accommodation for families or longer stays</p>
+                            <p class="card-text">Two-bedroom units with separate living areas, perfect for families or those requiring extended stays in the area.</p>
+                            <ul class="list-group list-group-flush mb-3">
+                                <li class="list-group-item"><i class="fas fa-bed me-2 text-primary"></i> Two separate bedrooms</li>
+                                <li class="list-group-item"><i class="fas fa-kitchen-set me-2 text-primary"></i> Kitchenette facilities</li>
+                                <li class="list-group-item"><i class="fas fa-car me-2 text-primary"></i> Secure parking</li>
+                                <li class="list-group-item"><i class="fas fa-snowflake me-2 text-primary"></i> Air conditioning</li>
+                            </ul>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <!--<h4 class="text-primary mb-0">From R850/night</h4>-->
+                                <a href="#booking" class="btn btn-primary">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-4">
+                <div class="col-md-6 mb-4">
+                    <div class="card h-100 room-card">
+                        <img src="https://images.unsplash.com/photo-1551516594-56cb78394645?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="card-img-top room-img" alt="Long Stay Accommodation">
+                        <div class="card-body">
+                            <h3 class="card-title">Long-Term Stay Solutions</h3>
+                            <p class="text-secondary">Special rates for extended visits</p>
+                            <p class="card-text">Cost-effective accommodation solutions for contractors, project teams, and professionals requiring extended lodging.</p>
+                            <ul class="list-group list-group-flush mb-3">
+                                <li class="list-group-item"><i class="fas fa-calendar me-2 text-primary"></i> Weekly/monthly rates</li>
+                                <li class="list-group-item"><i class="fas fa-utensils me-2 text-primary"></i> Dinner available on request</li>
+                                <li class="list-group-item"><i class="fas fa-shirt me-2 text-primary"></i> Laundry services included</li>
+                                <li class="list-group-item"><i class="fas fa-toolbox me-2 text-primary"></i> Dedicated workspaces</li>
+                            </ul>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h4 class="text-primary mb-0">Special rates available</h4>
+                                <a href="#contact" class="btn btn-primary">Enquire</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="card h-100 room-card">
+                        <span class="room-badge">New</span>
+                        <img src="https://images.unsplash.com/photo-1584132967334-10e028bd69f7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="card-img-top room-img" alt="Executive Suite">
+                        <div class="card-body">
+                            <h3 class="card-title">Executive Suites</h3>
+                            <p class="text-secondary">Premium accommodation for business travelers</p>
+                            <p class="card-text">Spacious suites with additional amenities designed specifically for business professionals and corporate guests.</p>
+                            <ul class="list-group list-group-flush mb-3">
+                                <li class="list-group-item"><i class="fas fa-bed me-2 text-primary"></i> King-size bed</li>
+                                <li class="list-group-item"><i class="fas fa-desktop me-2 text-primary"></i> Dedicated workspace</li>
+                                <li class="list-group-item"><i class="fas fa-mug-saucer me-2 text-primary"></i> Tea/coffee facilities</li>
+                                <li class="list-group-item"><i class="fas fa-concierge-bell me-2 text-primary"></i> Priority services</li>
+                            </ul>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <!--<h4 class="text-primary mb-0">From R650/night</h4>-->
+                                <a href="#booking" class="btn btn-primary">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Amenities -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="section-title center">Guesthouse Amenities</h2>
+            <p class="text-center lead mb-5">We provide everything you need for a comfortable stay</p>
+            
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="text-center">
+                        <div class="amenity-icon mx-auto">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <h4>Breakfast Included</h4>
+                        <p>Start your day with a delicious breakfast, with options for early departures</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="text-center">
+                        <div class="amenity-icon mx-auto">
+                            <i class="fas fa-wifi"></i>
+                        </div>
+                        <h4>Free Wi-Fi</h4>
+                        <p>Stay connected with high-speed internet throughout the property</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="text-center">
+                        <div class="amenity-icon mx-auto">
+                            <i class="fas fa-parking"></i>
+                        </div>
+                        <h4>Secure Parking</h4>
+                        <p>Peace of mind with 24/7 monitored secure parking facilities</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="text-center">
+                        <div class="amenity-icon mx-auto">
+                            <i class="fas fa-snowflake"></i>
+                        </div>
+                        <h4>Air Conditioning</h4>
+                        <p>All rooms equipped with climate control for your comfort</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="text-center">
+                        <div class="amenity-icon mx-auto">
+                            <i class="fas fa-tv"></i>
+                        </div>
+                        <h4>Entertainment</h4>
+                        <p>Flat-screen TVs with satellite channels in all rooms</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="text-center">
+                        <div class="amenity-icon mx-auto">
+                            <i class="fas fa-shuttle-van"></i>
+                        </div>
+                        <h4>Shuttle Service</h4>
+                        <p>Transportation available on request to local destinations</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials 
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title center">Guest Experiences</h2>
+            <p class="text-center lead mb-5">What our guests say about their stay with us</p>
+            
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="testimonial-card">
+                        <div class="d-flex align-items-center">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Guest" class="testimonial-img">
+                            <div>
+                                <h5 class="mb-0">James Peterson</h5>
+                                <p class="text-secondary">Mining Contractor</p>
+                            </div>
+                        </div>
+                        <p class="mt-3">"I've been staying at Ambrosia Guesthouse for my monthly site visits over the past two years. The rooms are always clean, the staff is friendly, and the location is perfect for accessing the mining sites."</p>
+                        <div class="text-primary">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="testimonial-card">
+                        <div class="d-flex align-items-center">
+                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Guest" class="testimonial-img">
+                            <div>
+                                <h5 class="mb-0">Sarah Johnson</h5>
+                                <p class="text-secondary">Project Manager</p>
+                            </div>
+                        </div>
+                        <p class="mt-3">"Our team stayed at Ambrosia for a 3-month project. The long-term accommodation options were perfect for our needs, and having laundry services and meals available made our extended stay comfortable."</p>
+                        <div class="text-primary">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="testimonial-card">
+                        <div class="d-flex align-items-center">
+                            <img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Guest" class="testimonial-img">
+                            <div>
+                                <h5 class="mb-0">Michael Daniels</h5>
+                                <p class="text-secondary">Business Traveler</p>
+                            </div>
+                        </div>
+                        <p class="mt-3">"The executive suite was perfect for my business trip. The dedicated workspace and reliable Wi-Fi allowed me to be productive, and the comfortable bed ensured I was well-rested for meetings."</p>
+                        <div class="text-primary">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>-->
+
+    <!-- Gallery -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="section-title center">Guesthouse Gallery</h2>
+            <p class="text-center lead mb-5">Take a visual tour of our accommodation facilities</p>
+            
+            <div class="row">
+                <div class="col-md-3 col-6 mb-4">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="gallery-img" alt="Room">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-search-plus text-white fa-2x"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 mb-4">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="gallery-img" alt="Room">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-search-plus text-white fa-2x"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 mb-4">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1584132967334-10e028bd69f7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="gallery-img" alt="Bathroom">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-search-plus text-white fa-2x"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 mb-4">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="gallery-img" alt="Reception">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-search-plus text-white fa-2x"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 mb-4">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1551516594-56cb78394645?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="gallery-img" alt="Common Area">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-search-plus text-white fa-2x"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 mb-4">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="gallery-img" alt="Exterior">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-search-plus text-white fa-2x"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 mb-4">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1584132915807-fd1f5fbc078f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="gallery-img" alt="Dining">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-search-plus text-white fa-2x"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 mb-4">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="gallery-img" alt="Amenities">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-search-plus text-white fa-2x"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section 
+    <section id="booking" class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="booking-form">
+                        <h2 class="section-title center">Check Availability</h2>
+                        <p class="text-center mb-4">Interested in staying with us? Check availability and make a reservation</p>
+                        
+                        <form>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="check-in" class="form-label">Check-in Date</label>
+                                    <input type="date" class="form-control" id="check-in" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="check-out" class="form-label">Check-out Date</label>
+                                    <input type="date" class="form-control" id="check-out" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="guests" class="form-label">Number of Guests</label>
+                                    <select class="form-select" id="guests" required>
+                                        <option value="1">1 Guest</option>
+                                        <option value="2">2 Guests</option>
+                                        <option value="3">3 Guests</option>
+                                        <option value="4">4 Guests</option>
+                                        <option value="4+">More than 4</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="room-type" class="form-label">Room Type</label>
+                                    <select class="form-select" id="room-type" required>
+                                        <option value="standard">Standard Single Room</option>
+                                        <option value="family">Family Unit</option>
+                                        <option value="executive">Executive Suite</option>
+                                        <option value="long-term">Long-Term Stay</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="name" class="form-label">Full Name</label>
+                                    <input type="text" class="form-control" id="name" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="email" class="form-label">Email Address</label>
+                                    <input type="email" class="form-control" id="email" required>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="message" class="form-label">Special Requests</label>
+                                <textarea class="form-control" id="message" rows="3"></textarea>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary btn-lg">Check Availability</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>-->
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h4>AMBROSIA LOGISTICS</h4>
+                    <p>Transportation & Guesthouse Services</p>
+                    <p>Company Registration: 2013/178702/07</p>
+                    <div class="social-icons mt-3">
+                        <a href="https://www.facebook.com/share/1BZNuB1aFe/?mibextid=wwXIfr"><i class="fab fa-facebook-f"></i></a>
+                        <!--<a href="#"><i class="fab fa-twitter"></i></a>-->
+                        <!--<a href="#"><i class="fab fa-linkedin-in"></i></a>-->
+                        <!--<a href="#"><i class="fab fa-instagram"></i></a>-->
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h4>Contact Info</h4>
+                    <p><i class="fas fa-map-marker-alt me-2"></i> 5153 Topline Single, Postdene, Postmasburg, Northern Cape, South Africa, 8420</p>
+                    <p><i class="fas fa-phone me-2"></i> 074 224 3219</p>
+                    <p><i class="fas fa-envelope me-2"></i> info@ambrosialogistics.co.za</p>
+                </div>
+                <div class="col-lg-4">
+                    <h4>Quick Links</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="fleet.html">Our Fleet</a></li>
+                        <li><a href="accommodation.html">Accommodation</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4 bg-light">
+            <div class="text-center">
+                <p class="mb-0">&copy; 2023 Ambrosia Logistics. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,594 +1,589 @@
 <!DOCTYPE html>
-<html lang="en-ZA">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us | Ambrosia Logistics</title>
+    <title>Contact Us - Ambrosia Logistics</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
     <link rel="icon" type="image/png" href="assets/AmbrosiaLogo.png">
 
     <style>
-        /* ================ */
-        /* VARIABLES */
-        /* ================ */
         :root {
-            /* Colors */
-            --primary: #1A3A6F;
-            --primary-light: #2D5AA6;
-            --secondary: #E8B959;
-            --dark: #1E1E1E;
-            --gray: #6B7280;
-            --light-gray: #F3F4F6;
-            --white: #FFFFFF;
-            
-            /* Typography */
-            --font-main: 'Manrope', sans-serif;
-            --font-heading: 'Playfair Display', serif;
-            
-            /* Spacing */
-            --space-xs: 0.5rem;
-            --space-sm: 1rem;
-            --space-md: 1.5rem;
-            --space-lg: 2rem;
-            --space-xl: 3rem;
-            
-            /* Border radius */
-            --radius-sm: 4px;
-            --radius-md: 8px;
-            --radius-lg: 16px;
-            
-            /* Shadows */
-            --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
-            --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
-            --shadow-lg: 0 10px 25px rgba(0,0,0,0.1);
+            --primary: #2c3e50;
+            --secondary: #e67e22;
+            --accent: #3498db;
+            --light: #f8f9fa;
+            --dark: #2c3e50;
+            --gradient-primary: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            --gradient-secondary: linear-gradient(135deg, #e67e22 0%, #f39c12 100%);
         }
-
-        /* ================ */
-        /* BASE STYLES */
-        /* ================ */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        
         body {
-            font-family: var(--font-main);
-            color: var(--dark);
-            line-height: 1.6;
+            font-family: 'Open Sans', sans-serif;
+            color: #333;
             overflow-x: hidden;
-            padding-top: 80px; /* For fixed header */
         }
-
-        h1, h2, h3, h4 {
-            font-family: var(--font-heading);
-            line-height: 1.2;
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
         }
-
-        a {
-            text-decoration: none;
-            color: inherit;
+        
+        /* Navigation */
+        .navbar {
+            background: var(--gradient-primary);
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
-
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
+        
+        .navbar-brand {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.8rem;
         }
-
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 var(--space-md);
+        
+        .navbar-dark .navbar-nav .nav-link {
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            transition: all 0.3s ease;
         }
-
-        section {
-            padding: var(--space-xl) 0;
+        
+        .navbar-dark .navbar-nav .nav-link:hover {
+            color: var(--secondary);
         }
-
-        /* ================ */
-        /* COMPONENTS */
-        /* ================ */
-        /* Header/Navbar */
-        .header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 80px;
-            background-color: var(--white);
-            box-shadow: var(--shadow-sm);
-            z-index: 1000;
-            display: flex;
-            align-items: center;
+        
+        /* Hero Section */
+        .contact-hero {
+            background: var(--gradient-primary), url('https://images.unsplash.com/photo-1516387938699-a93567ec168e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 120px 0 80px;
+            margin-bottom: 50px;
         }
-
-        .header .container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            height: 100%;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            height: 100%;
-        }
-
-        .logo img {
-            max-height: 40px;
-            width: auto;
-        }
-
-        .nav__list {
-            display: flex;
-            gap: var(--space-lg);
-            list-style: none;
-        }
-
-        .nav__link {
-            font-weight: 600;
+        
+        /* Section Styles */
+        .section-title {
             position: relative;
-            padding: var(--space-xs) 0;
-            color: var(--dark);
+            padding-bottom: 15px;
+            margin-bottom: 30px;
         }
-
-        .nav__link::after {
+        
+        .section-title:after {
             content: '';
             position: absolute;
             bottom: 0;
             left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--primary);
-            transition: width 0.3s ease;
+            width: 80px;
+            height: 3px;
+            background: var(--gradient-secondary);
         }
-
-        .nav__link:hover::after {
-            width: 100%;
-        }
-
-        .nav__link.active {
-            color: var(--primary);
-        }
-
-        .button {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: var(--space-sm) var(--space-md);
-            border-radius: var(--radius-sm);
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-        }
-
-        .button--primary {
-            background-color: var(--primary);
-            color: var(--white);
-        }
-
-        .button--primary:hover {
-            background-color: var(--primary-light);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .hamburger {
-            display: none;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: var(--space-xs);
-            z-index: 1001;
-        }
-
-        .hamburger span {
-            display: block;
-            width: 24px;
-            height: 2px;
-            background-color: var(--primary);
-            margin: 5px 0;
-            transition: all 0.3s ease;
-        }
-
-        /* Page Hero */
-        .page-hero {
-            padding: 120px 0 60px;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('assets/contact-hero.jpg');
-            background-size: cover;
-            background-position: center;
-            color: var(--white);
+        
+        .section-title.center {
             text-align: center;
         }
-
-        .page-hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: var(--space-sm);
+        
+        .section-title.center:after {
+            left: 50%;
+            transform: translateX(-50%);
         }
-
-        .page-hero p {
-            font-size: 1.25rem;
-            opacity: 0.9;
+        
+        /* Contact Cards */
+        .contact-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            height: 100%;
         }
-
-        /* Contact Section */
-        .contact-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: var(--space-xl);
+        
+        .contact-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
         }
-
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: var(--space-lg);
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: flex-start;
-            gap: var(--space-md);
-        }
-
+        
         .contact-icon {
-            width: 24px;
-            height: 24px;
-            flex-shrink: 0;
-        }
-
-        .social-links {
-            display: flex;
-            gap: var(--space-md);
-            margin-top: var(--space-sm);
-        }
-
-        .social-link {
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: var(--light-gray);
+            width: 70px;
+            height: 70px;
+            line-height: 70px;
             border-radius: 50%;
+            background: rgba(230, 126, 34, 0.1);
+            color: var(--secondary);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+        
+        /* Contact Form */
+        .contact-form {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 30px;
+        }
+        
+        .form-control {
+            padding: 12px 15px;
+            border: 1px solid #e1e5eb;
+            border-radius: 8px;
             transition: all 0.3s ease;
         }
-
-        .social-link:hover {
-            background-color: var(--primary);
+        
+        .form-control:focus {
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 0.2rem rgba(230, 126, 34, 0.25);
         }
-
-        .social-link:hover img {
-            filter: brightness(0) invert(1);
-        }
-
-        .contact-form {
-            background-color: var(--white);
-            border-radius: var(--radius-md);
-            padding: var(--space-xl);
-            box-shadow: var(--shadow-sm);
-        }
-
-        .form-group {
-            margin-bottom: var(--space-md);
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: var(--space-xs);
-            font-weight: 600;
-        }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: var(--space-sm);
-            border: 1px solid var(--light-gray);
-            border-radius: var(--radius-sm);
-            font-family: var(--font-main);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 150px;
-        }
-
-        /* Map Section */
-        .map-section {
-            padding-top: 0;
-        }
-
+        
+        /* Map */
         .map-container {
-            height: 400px;
-            border-radius: var(--radius-md);
+            border-radius: 15px;
             overflow: hidden;
-            box-shadow: var(--shadow-md);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            height: 400px;
         }
-
-        .map-container iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
+        
+        /* FAQ */
+        .accordion-button {
+            font-weight: 600;
+            padding: 1rem 1.25rem;
         }
-
-        /* ================ */
-        /* RESPONSIVE */
-        /* ================ */
-        @media (max-width: 768px) {
-            .nav {
-                position: fixed;
-                top: 80px;
-                right: -100%;
-                width: 80%;
-                max-width: 300px;
-                height: calc(100vh - 80px);
-                background-color: var(--white);
-                box-shadow: var(--shadow-lg);
-                transition: right 0.3s ease;
-                padding: var(--space-xl);
-            }
-            
-            .nav.active {
-                right: 0;
-            }
-            
-            .nav__list {
-                flex-direction: column;
-                width: 100%;
-            }
-            
-            .hamburger {
-                display: block;
-            }
-            
-            .hamburger.active span:nth-child(1) {
-                transform: rotate(45deg) translate(5px, 5px);
-            }
-            
-            .hamburger.active span:nth-child(2) {
-                opacity: 0;
-            }
-            
-            .hamburger.active span:nth-child(3) {
-                transform: rotate(-45deg) translate(5px, -5px);
-            }
-            
-            .page-hero {
-                padding: 100px 0 40px;
-            }
-            
-            .page-hero h1 {
-                font-size: 2rem;
-            }
-            
-            .contact-form {
-                padding: var(--space-lg);
-            }
+        
+        .accordion-button:not(.collapsed) {
+            background-color: rgba(230, 126, 34, 0.1);
+            color: var(--secondary);
         }
-
-
-        .contact-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 16px;
-    margin-bottom: 20px;
-}
-
-.contact-icon {
-    font-size: 24px;
-    color: #333;
-    margin-top: 4px;
-}
-
+        
+        .accordion-button:focus {
+            border-color: rgba(230, 126, 34, 0.25);
+            box-shadow: 0 0 0 0.2rem rgba(230, 126, 34, 0.25);
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--dark);
+            color: white;
+            padding: 80px 0 30px;
+        }
+        
+        .footer a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer a:hover {
+            color: var(--secondary);
+        }
+        
+        .social-icons a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+        }
+        
+        /* Business Hours */
+        .hours-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .hours-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .hours-list li:last-child {
+            border-bottom: none;
+        }
     </style>
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-
 </head>
 <body>
-    <!-- Header with Navigation -->
-    <header class="header">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
-            <a href="index.html" class="logo">
-                <img src="assets/AmbrosiaLogo.png" alt="LU Ally's Guesthouse and Transport">
+            <a class="navbar-brand" href="index.html">
+                <span class="text-warning">                <span class="text-warning">  <img src="assets/AmbrosiaLogo.png" alt="Logo" width="80" height="80" class="d-inline-block align-text-top">
+
             </a>
-            
-            <nav class="nav">
-                <ul class="nav__list">
-                    <li><a href="services.html" class="nav__link">Services</a></li>
-                    <li><a href="about.html" class="nav__link">About</a></li>
-                    <li><a href="guesthouse.html" class="nav__link">Guesthouse</a></li>
-                    <li><a href="contact.html" class="nav__link active">Contact</a></li>
-                </ul>
-            </nav>
-            
-            <a href="#contact-form" class="button button--primary">Get Quote</a>
-            
-            <button class="hamburger" aria-label="Toggle menu">
-                <span></span>
-                <span></span>
-                <span></span>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
             </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="fleet.html">Our Fleet</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="accommodation.html">Accommodation</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </header>
+    </nav>
 
-    <!-- Page Hero -->
-    <section class="page-hero">
+    <!-- Hero Section -->
+    <section class="contact-hero">
         <div class="container">
-            <h1>Contact Us</h1>
-            <p>Get in touch with our team for transport or accommodation inquiries</p>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="section">
-        <div class="container">
-            <div class="contact-container">
-                <div class="contact-info">
-                    <h2>Our Office</h2>
-                    <p>We'd love to hear from you! Reach out to us for any questions about our services or to make a booking.</p>
-                    
-                   <div class="contact-item">
-    <i class="fas fa-map-marker-alt contact-icon"></i>
-    <div>
-        <h3>Address</h3>
-        <p>25 Van Wyk Street, West End<br>Postmasburg, 8420<br>Northern Cape</p>
-    </div>
-</div>
-
-                    </div>
-                    
-                  <div class="contact-item">
-    <i class="fas fa-phone contact-icon"></i>
-    <div>
-        <h3>Phone</h3>
-        <p><a href="tel:0742243219">074 224 3219</a></p>
-    </div>
-</div>
-
-                    
-                  <!-- <div class="contact-item">
-                        <img src="assets/icons/email.svg" alt="Email" class="contact-icon">
-                       <div>
-                            <h3>Email</h3>
-                            <p><a href="mailto:info@luallys.co.za">info@luallys.co.za</a></p>
-                        </div> -->
-                    </div>
-                    
-                    <div class="contact-item">
-    <i class="fas fa-clock contact-icon"></i>
-    <div>
-        <h3>Business Hours</h3>
-        <p>Monday - Friday: 8:00 AM - 5:00 PM<br>Saturday: 9:00 AM - 1:00 PM<br>Sunday: Closed</p>
-    </div>
-</div>
-
-                    
-                   <div>
-    <h3>Follow Us</h3>
-    <div class="social-links">
-        <a href="https://facebook.com/share/1BZNuB1aFe/?mibextid=wwXlfr" class="social-link" aria-label="Facebook" target="_blank">
-            <i class="fab fa-facebook-f"></i>
-        </a>
-        <!--<a href="https://linkedin.com" class="social-link" aria-label="LinkedIn" target="_blank">
-            <i class="fab fa-linkedin-in"></i>
-        </a>-->
-        <!--<a href="https://instagram.com" class="social-link" aria-label="Instagram" target="_blank">
-            <i class="fab fa-instagram"></i>
-        </a>-->
-    </div>
-</div>
-
-                </div>
-                
-              <!---  <div class="contact-form" id="contact-form">
-                    <h2>Send Us a Message</h2>
-                    <form>
-                        <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="service">Service Interested In</label>
-                            <select id="service">
-                                <option value="">Select a service</option>
-                                <option value="transport">Transport Services</option>
-                                <option value="guesthouse">Guesthouse Accommodation</option>
-                                <option value="both">Both Services</option>
-                                <option value="other">Other Inquiry</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="message">Your Message</label>
-                            <textarea id="message" required></textarea>
-                        </div>
-                        
-                        <button type="submit" class="button button--primary">Send Message</button>
-                    </form>
+            <div class="row">
+                <div class="col-lg-8">
+                    <h1 class="display-4 fw-bold mb-4">Get In Touch</h1>
+                    <p class="lead">We're here to answer your questions and provide the services you need</p>
                 </div>
             </div>
         </div>
     </section>
 
-     Map Section
-    <section class="section map-section">
+    <!-- Contact Cards -->
+    <section class="py-5">
         <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 contact-card text-center p-4">
+                        <div class="contact-icon mx-auto">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3>Our Location</h3>
+                        <p>5153 Topline Single, Postdene<br>Postmasburg, 8420<br>Northern Cape, South Africa</p>
+                        <a href="#map" class="btn btn-outline-primary mt-3">View on Map</a>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 contact-card text-center p-4">
+                        <div class="contact-icon mx-auto">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <h3>Phone Numbers</h3>
+                        <p>Main: <a href="tel:0742243219">074 224 3219</a><br>Office: <a href="tel:0275551234">027 555 1234</a><br>Emergency: <a href="tel:0275551122">027 555 1122</a></p>
+                        <a href="tel:0742243219" class="btn btn-outline-primary mt-3">Call Now</a>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 contact-card text-center p-4">
+                        <div class="contact-icon mx-auto">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3>Email Us</h3>
+                        <p>General: <a href="mailto:info@ambrosialogistics.co.za">info@ambrosialogistics.co.za</a><br>Transport: <a href="mailto:transport@ambrosialogistics.co.za">transport@ambrosialogistics.co.za</a><br>Accommodation: <a href="mailto:bookings@ambrosialogistics.co.za">bookings@ambrosialogistics.co.za</a></p>
+                        <a href="#contact-form" class="btn btn-outline-primary mt-3">Send Message</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form & Info -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mb-5 mb-lg-0">
+                    <div class="contact-form">
+                        <h2 class="section-title" id="contact-form">Send Us a Message</h2>
+                        <p class="mb-4">Fill out the form below and we'll get back to you as soon as possible</p>
+                        
+                        <form>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="name" class="form-label">Full Name *</label>
+                                    <input type="text" class="form-control" id="name" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="email" class="form-label">Email Address *</label>
+                                    <input type="email" class="form-control" id="email" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="phone" class="form-label">Phone Number</label>
+                                    <input type="tel" class="form-control" id="phone">
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="subject" class="form-label">Subject *</label>
+                                    <select class="form-select" id="subject" required>
+                                        <option value="">Select a subject</option>
+                                        <option value="transport">Transport Services</option>
+                                        <option value="accommodation">Accommodation</option>
+                                        <option value="quote">Request a Quote</option>
+                                        <option value="employment">Employment Opportunities</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="message" class="form-label">Message *</label>
+                                <textarea class="form-control" id="message" rows="5" required></textarea>
+                            </div>
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" id="newsletter">
+                                <label class="form-check-label" for="newsletter">Subscribe to our newsletter for updates</label>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-lg">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <h2 class="section-title">Additional Information</h2>
+                    
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h4><i class="fas fa-clock me-2 text-primary"></i> Business Hours</h4>
+                            <ul class="hours-list mt-3">
+                                <li class="d-flex justify-content-between">
+                                    <span>Monday - Friday</span>
+                                    <span>8:00 AM - 5:00 PM</span>
+                                </li>
+                                <li class="d-flex justify-content-between">
+                                    <span>Saturday</span>
+                                    <span>9:00 AM - 1:00 PM</span>
+                                </li>
+                                <li class="d-flex justify-content-between">
+                                    <span>Sunday</span>
+                                    <span>Closed</span>
+                                </li>
+                                <li class="d-flex justify-content-between">
+                                    <span>Emergency Transport</span>
+                                    <span>24/7</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h4><i class="fas fa-users me-2 text-primary"></i> Department Contacts</h4>
+                            <ul class="list-unstyled mt-3">
+                                <li class="mb-2">
+                                    <strong>Transport Services:</strong><br>
+                                    <a href="mailto:transport@ambrosialogistics.co.za">transport@ambrosialogistics.co.za</a>
+                                </li>
+                                <li class="mb-2">
+                                    <strong>Accommodation Bookings:</strong><br>
+                                    <a href="mailto:bookings@ambrosialogistics.co.za">bookings@ambrosialogistics.co.za</a>
+                                </li>
+                                <li class="mb-2">
+                                    <strong>Human Resources:</strong><br>
+                                    <a href="mailto:hr@ambrosialogistics.co.za">hr@ambrosialogistics.co.za</a>
+                                </li>
+                                <li>
+                                    <strong>Accounts & Billing:</strong><br>
+                                    <a href="mailto:accounts@ambrosialogistics.co.za">accounts@ambrosialogistics.co.za</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-body">
+                            <h4><i class="fas fa-shield-alt me-2 text-primary"></i> BBBEE Status</h4>
+                            <p class="mt-3">We are proud to be a <strong>BBBEE Level 1</strong> contributor, supporting broad-based black economic empowerment in South Africa.</p>
+                            <div class="bg-light p-2 text-center rounded">
+                                <small>Registration: 2013/178702/07</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section id="map" class="py-5">
+        <div class="container">
+            <h2 class="section-title center">Our Location</h2>
+            <p class="text-center lead mb-5">Visit our offices or get directions to our facilities</p>
+            
             <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3440.715047724039!2d23.123456!3d-28.123456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDA3JzI0LjQiUyAyNMKwMDcnMjQuNCJF!5e0!3m2!1sen!2sza!4v1234567890123!5m2!1sen!2sza" allowfullscreen="" loading="lazy"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d55202.41543511252!2d23.06525576953124!3d-28.32996899999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1c74ea6b39e7f78d%3A0xda351f6a0e1c8810!2sPostmasburg%2C%208420!5e0!3m2!1sen!2sza!4v1684839208892!5m2!1sen!2sza" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            
+            <div class="row mt-5">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-building fa-2x text-primary mb-3"></i>
+                            <h4>Main Office</h4>
+                            <p>5153 Topline Single, Postdene<br>Postmasburg, 8420<br>Northern Cape, South Africa</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-truck fa-2x text-primary mb-3"></i>
+                            <h4>Transport Depot</h4>
+                            <p>25 Van Wyk Street, West End<br>Postmasburg, 8420<br>Next to Sibilos Shopping Mall</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-bed fa-2x text-primary mb-3"></i>
+                            <h4>Guesthouse</h4>
+                            <p>27 Van Wyk Street, West End<br>Postmasburg, 8420<br>Walking distance from transport depot</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </section> -->
+    </section>
 
-    <script>
-        // Mobile menu toggle
-        document.addEventListener('DOMContentLoaded', function() {
-            const hamburger = document.querySelector('.hamburger');
-            const nav = document.querySelector('.nav');
+    <!-- FAQ Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title center">Frequently Asked Questions</h2>
+            <p class="text-center lead mb-5">Find answers to common questions about our services</p>
             
-            if (hamburger && nav) {
-                hamburger.addEventListener('click', function() {
-                    this.classList.toggle('active');
-                    nav.classList.toggle('active');
-                });
-            }
+            <div class="accordion" id="faqAccordion">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            What areas do you serve for transportation services?
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            We primarily serve the Northern Cape province with transportation services extending to various provinces across South Africa. Our main operations are centered around Postmasburg, Kathu, Kimberley, and surrounding mining regions.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            How do I make a reservation at your guesthouse?
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            You can make a reservation by calling us at <a href="tel:0742243219">074 224 3219</a>, emailing <a href="mailto:bookings@ambrosialogistics.co.za">bookings@ambrosialogistics.co.za</a>, or using the contact form on this page. We recommend booking in advance, especially during peak mining seasons.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            What types of vehicles are available in your fleet?
+                        </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Our fleet includes site tipping trucks, yellow fleet equipment (777 trucks, FEL, graders, dozers, diesel bowsers, water trucks, TLBs), passenger transport vehicles (9-21 seaters), and light commercial vehicles. Visit our <a href="fleet.html">Fleet page</a> for more details.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingFour">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                            Do you offer long-term accommodation options?
+                        </button>
+                    </h2>
+                    <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Yes, we offer both short-term and long-term accommodation options. Our long-term stays include bachelor units and 2-bedroom family units with secure parking. Special rates are available for extended stays. Visit our <a href="accommodation.html">Accommodation page</a> for more information.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingFive">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                            How quickly can you respond to emergency transport requests?
+                        </button>
+                    </h2>
+                    <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            We offer 24/7 emergency transport services for urgent requirements. Response times vary based on location and current availability, but we prioritize emergency requests and typically can deploy vehicles within 2-4 hours for local requests.
+                        </div>
+                    </div>
+                </div>
+            </div>
             
-            // Close mobile menu when clicking on a link
-            const navLinks = document.querySelectorAll('.nav__link');
-            navLinks.forEach(link => {
-                link.addEventListener('click', function() {
-                    if (nav.classList.contains('active')) {
-                        hamburger.classList.remove('active');
-                        nav.classList.remove('active');
-                    }
-                });
-            });
-            
-            // Smooth scrolling for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
-                    const targetId = this.getAttribute('href');
-                    const targetElement = document.querySelector(targetId);
-                    
-                    if (targetElement) {
-                        const headerHeight = document.querySelector('.header').offsetHeight;
-                        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-                        
-                        window.scrollTo({
-                            top: targetPosition,
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
-            
-            // Form submission
-            const contactForm = document.querySelector('.contact-form form');
-            if (contactForm) {
-                contactForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    alert('Thank you for your message! We will get back to you soon.');
-                    this.reset();
-                });
-            }
-        });
-    </script>
+            <div class="text-center mt-5">
+                <p class="mb-3">Can't find the answer you're looking for?</p>
+                <a href="#contact-form" class="btn btn-primary">Contact Us Directly</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-5" style="background: var(--gradient-primary);">
+        <div class="container py-5 text-center text-white">
+            <h2 class="mb-4">Ready to Get Started?</h2>
+            <p class="lead mb-4">Contact us today to discuss your transportation and accommodation needs</p>
+            <a href="#contact-form" class="btn btn-light btn-lg me-3">Send a Message</a>
+            <a href="tel:0742243219" class="btn btn-outline-light btn-lg">Call Now</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h4>AMBROSIA LOGISTICS</h4>
+                    <p>Transportation & Guesthouse Services</p>
+                    <p>Company Registration: 2013/178702/07</p>
+                    <div class="social-icons mt-3">
+                        <a href="https://www.facebook.com/share/1BZNuB1aFe/?mibextid=wwXIfr"><i class="fab fa-facebook-f"></i></a>
+                        <!--<a href="#"><i class="fab fa-twitter"></i></a>-->
+                        <!--<a href="#"><i class="fab fa-linkedin-in"></i></a>-->
+                        <!--<a href="#"><i class="fab fa-instagram"></i></a>-->
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h4>Contact Info</h4>
+                    <p><i class="fas fa-map-marker-alt me-2"></i> 5153 Topline Single, Postdene, Postmasburg, Northern Cape, South Africa, 8420</p>
+                    <p><i class="fas fa-phone me-2"></i> 074 224 3219</p>
+                    <p><i class="fas fa-envelope me-2"></i> info@ambrosialogistics.co.za</p>
+                </div>
+                <div class="col-lg-4">
+                    <h4>Quick Links</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="fleet.html">Our Fleet</a></li>
+                        <li><a href="accommodation.html">Accommodation</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4 bg-light">
+            <div class="text-center">
+                <p class="mb-0">&copy; 2023 Ambrosia Logistics. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

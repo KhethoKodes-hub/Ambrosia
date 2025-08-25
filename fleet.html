@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Fleet - Ambrosia Logistics</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <link rel="icon" type="image/png" href="assets/AmbrosiaLogo.png">
+
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #e67e22;
+            --accent: #3498db;
+            --light: #f8f9fa;
+            --dark: #2c3e50;
+            --gradient-primary: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            --gradient-secondary: linear-gradient(135deg, #e67e22 0%, #f39c12 100%);
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: #333;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+        
+        /* Navigation */
+        .navbar {
+            background: var(--gradient-primary);
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .navbar-brand {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.8rem;
+        }
+        
+        .navbar-dark .navbar-nav .nav-link {
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-dark .navbar-nav .nav-link:hover {
+            color: var(--secondary);
+        }
+        
+        /* Hero Section */
+        .fleet-hero {
+            background: var(--gradient-primary), url('https://images.unsplash.com/photo-1494412519320-aa613df7c5c8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 120px 0 80px;
+            margin-bottom: 50px;
+        }
+        
+        /* Section Styles */
+        .section-title {
+            position: relative;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background: var(--gradient-secondary);
+        }
+        
+        .section-title.center {
+            text-align: center;
+        }
+        
+        .section-title.center:after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* Vehicle Cards */
+        .vehicle-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            height: 100%;
+        }
+        
+        .vehicle-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .vehicle-img {
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .vehicle-card:hover .vehicle-img {
+            transform: scale(1.05);
+        }
+        
+        .vehicle-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--gradient-secondary);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 1;
+        }
+        
+        /* Stats */
+        .stats-section {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 80px 0;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--secondary);
+        }
+        
+        /* Features */
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            line-height: 70px;
+            border-radius: 50%;
+            background: rgba(230, 126, 34, 0.1);
+            color: var(--secondary);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+        
+        /* Fleet Management */
+        .management-card {
+            border-radius: 15px;
+            background: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 30px;
+            height: 100%;
+            text-align: center;
+        }
+        
+        /* Gallery */
+        .gallery-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+        
+        .gallery-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover .gallery-img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(44, 62, 80, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--dark);
+            color: white;
+            padding: 80px 0 30px;
+        }
+        
+        .footer a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer a:hover {
+            color: var(--secondary);
+        }
+        
+        .social-icons a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .feature-item {
+                text-align: center;
+                margin-bottom: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <span class="text-warning">                <span class="text-warning">  <img src="assets/AmbrosiaLogo.png" alt="Logo" width="80" height="80" class="d-inline-block align-text-top">
+
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="fleet.html">Our Fleet</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="accommodation.html">Accommodation</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="fleet-hero">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <h1 class="display-4 fw-bold mb-4">Our Modern Fleet</h1>
+                    <p class="lead">Reliable, well-maintained vehicles for all your transportation needs</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fleet Intro -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <h2 class="section-title">Our Fleet Capabilities</h2>
+                    <p class="lead">A diverse range of vehicles to meet your specific requirements</p>
+                    <p>At Ambrosia Logistics, we maintain a modern, well-equipped fleet capable of handling various transportation challenges. From site tipping trucks for mining operations to passenger transport for corporate needs, our vehicles are maintained to the highest standards.</p>
+                    <p>All our vehicles are equipped with advanced tracking technology, regularly serviced, and operated by experienced, licensed drivers to ensure the safe and timely delivery of your goods and personnel.</p>
+                    <div class="d-flex gap-3 mt-4">
+                        <a href="#vehicles" class="btn btn-primary">View Our Vehicles</a>
+                        <a href="#contact" class="btn btn-outline-dark">Request a Quote</a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <img src="https://images.unsplash.com/photo-1494412519320-aa613df7c5c8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Our Fleet" class="img-fluid rounded shadow">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fleet Stats -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-3 col-6 mb-4">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Vehicles in Fleet</div>
+                </div>
+                <div class="col-md-3 col-6 mb-4">
+                    <div class="stat-number">40k+</div>
+                    <div class="stat-label">Tons Transported Monthly</div>
+                </div>
+                <div class="col-md-3 col-6 mb-4">
+                    <div class="stat-number">99.8%</div>
+                    <div class="stat-label">On-Time Delivery Rate</div>
+                </div>
+                <div class="col-md-3 col-6 mb-4">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Support & Monitoring</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vehicle Types -->
+    <section id="vehicles" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title center">Our Vehicle Types</h2>
+            <p class="text-center lead mb-5">A diverse fleet to meet various transportation needs</p>
+            
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 vehicle-card">
+                        <span class="vehicle-badge">Most Popular</span>
+                        <img src="https://images.unsplash.com/photo-1585516119365-c0c2dcad4bf5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="card-img-top vehicle-img" alt="Site Tipping Trucks">
+                        <div class="card-body">
+                            <h3 class="card-title">Site Tipping Trucks</h3>
+                            <p class="text-secondary">For bulk material transportation</p>
+                            <p class="card-text">Our specialized site tipping trucks are designed for efficient transportation of bulk materials in mining and construction environments.</p>
+                            <ul class="list-group list-group-flush mb-3">
+                                <li class="list-group-item"><i class="fas fa-check-circle me-2 text-primary"></i> Various capacity options</li>
+                                <li class="list-group-item"><i class="fas fa-check-circle me-2 text-primary"></i> Heavy-duty construction</li>
+                                <li class="list-group-item"><i class="fas fa-check-circle me-2 text-primary"></i> Off-road capabilities</li>
+                                <li class="list-group-item"><i class="fas fa-check-circle me-2 text-primary"></i> Safety compliant</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 vehicle-card">
+                        <img src="https://images.unsplash.com/photo-1574359173084-bfcee66c2c2a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="card-img-top vehicle-img" alt="Yellow Fleet">
+                        <div class="card-body">
+                            <h3 class="card-title">Yellow Fleet Equipment</h3>
+                            <p class="text-secondary">For mining and construction operations</p>
+                            <p class="card-text">Our yellow fleet includes various heavy equipment for load and haul operations in mining and construction environments.</p>
+                            <ul class="list-group list-group-flush mb-3">
+                                <li class="list-group-item"><i class="fas fa-check-circle me-2 text-primary"></i> 777 Trucks and FEL</li>
+                                <li class="list-group-item"><i class="fas fa-check-circle me-2 text-primary"></i> Graders and dozers</li>
+                                <li class="list-group-item"><i class="fas fa-check-circle me-2 text-primary"></i> TLBs and excavators</li>
+                                <li class="list-group-item"><i class="fas fa-check-circle me-2 text-primary"></i> Diesel bowsers & water trucks</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 vehicle-card">
+                        <span class="vehicle-badge">New Additions</span>
+                        <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="card-img-top vehicle-img" alt="Passenger Transport">
+                        <div class="card-body">
+                            <h3 class="card-title">Passenger Transport</h3>
+                            <p class="text-secondary">For employee and personnel transportation</p>
+                            <p class="card-text">Our passenger transport vehicles range from 9-seater minibusses to 21-seater buses, all maintained to the highest safety standards.</p>
+                            <ul class="list-group list-group-flush mb-3">
+                                <li class="list-group-item"><i class="fas fa-check-circle me-2 text-primary"></i> 9-21 seater options</li>
+                                <li class="list-group-item"><i class="fas fa-check-circle me-2 text-primary"></i> Air conditioned</li>
+                                <li class="list-group-item"><i class="fas fa-check-circle me-2 text-primary"></i> Safety equipped</li>
+                                <li class="list-group-item"><i class="fas fa-check-circle me-2 text-primary"></i> Experienced drivers</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-4">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 vehicle-card">
+                        <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="card-img-top vehicle-img" alt="Specialty Trailers">
+                        <div class="card-body">
+                            <h3 class="card-title">Specialty Trailers</h3>
+                            <p class="text-secondary">For unique transportation requirements</p>
+                            <p class="card-text">We offer a range of specialty trailers designed to transport unique commodities and equipment safely and efficiently.</p>
+                            <ul class="list-group list-group-flush mb-3">
+                                <li class="list-group-item"><i class="fas fa-check-circle me-2 text-primary"></i> Flatbed trailers</li>
+                                <li class="list-group-item"><i class="fas fa-check-circle me-2 text-primary"></i> Lowboy trailers</li>
+                                <li class="list-group-item"><i class="fas fa-check-circle me-2 text-primary"></i> Enclosed trailers</li>
+                                <li class="list-group-item"><i class="fas fa-check-circle me-2 text-primary"></i> Step deck trailers</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 vehicle-card">
+                        <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="card-img-top vehicle-img" alt="Light Commercial Vehicles">
+                        <div class="card-body">
+                            <h3 class="card-title">Light Commercial Vehicles</h3>
+                            <p class="text-secondary">For smaller loads and quick deliveries</p>
+                            <p class="card-text">Our fleet of light commercial vehicles is perfect for smaller cargo loads, quick deliveries, and urban transportation needs.</p>
+                            <ul class="list-group list-group-flush mb-3">
+                                <li class="list-group-item"><i class="fas fa-check-circle me-2 text-primary"></i> Various size options</li>
+                                <li class="list-group-item"><i class="fas fa-check-circle me-2 text-primary"></i> Fuel efficient</li>
+                                <li class="list-group-item"><i class="fas fa-check-circle me-2 text-primary"></i> Urban maneuverability</li>
+                                <li class="list-group-item"><i class="fas fa-check-circle me-2 text-primary"></i> Quick deployment</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 vehicle-card">
+                        <span class="vehicle-badge">Specialized</span>
+                        <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="card-img-top vehicle-img" alt="Support Vehicles">
+                        <div class="card-body">
+                            <h3 class="card-title">Support Vehicles</h3>
+                            <p class="text-secondary">For maintenance and operational support</p>
+                            <p class="card-text">Our support vehicle fleet includes service trucks, fuel tankers, and other specialized vehicles to keep operations running smoothly.</p>
+                            <ul class="list-group list-group-flush mb-3">
+                                <li class="list-group-item"><i class="fas fa-check-circle me-2 text-primary"></i> Maintenance vehicles</li>
+                                <li class="list-group-item"><i class="fas fa-check-circle me-2 text-primary"></i> Fuel and water tankers</li>
+                                <li class="list-group-item"><i class="fas fa-check-circle me-2 text-primary"></i> Recovery vehicles</li>
+                                <li class="list-group-item"><i class="fas fa-check-circle me-2 text-primary"></i> Mobile workshops</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fleet Features -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="section-title center">Our Fleet Features</h2>
+            <p class="text-center lead mb-5">Why choose our transportation solutions</p>
+            
+            <div class="row">
+                <div class="col-md-4 feature-item mb-5">
+                    <div class="text-center">
+                        <div class="feature-icon mx-auto">
+                            <i class="fas fa-satellite-dish"></i>
+                        </div>
+                        <h4>Real-Time Tracking</h4>
+                        <p>All our vehicles are equipped with GPS tracking for real-time monitoring of your shipments.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 feature-item mb-5">
+                    <div class="text-center">
+                        <div class="feature-icon mx-auto">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h4>Regular Maintenance</h4>
+                        <p>Our fleet undergoes rigorous maintenance schedules to ensure reliability and safety.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 feature-item mb-5">
+                    <div class="text-center">
+                        <div class="feature-icon mx-auto">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h4>Fully Insured</h4>
+                        <p>All vehicles and shipments are fully insured for your peace of mind.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 feature-item mb-5">
+                    <div class="text-center">
+                        <div class="feature-icon mx-auto">
+                            <i class="fas fa-user-check"></i>
+                        </div>
+                        <h4>Experienced Drivers</h4>
+                        <p>Our drivers are highly trained professionals with extensive experience.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 feature-item mb-5">
+                    <div class="text-center">
+                        <div class="feature-icon mx-auto">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h4>24/7 Availability</h4>
+                        <p>Our fleet is available around the clock to meet your scheduling needs.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 feature-item mb-5">
+                    <div class="text-center">
+                        <div class="feature-icon mx-auto">
+                            <i class="fas fa-exchange-alt"></i>
+                        </div>
+                        <h4>Backup Vehicles</h4>
+                        <p>We maintain backup vehicles to ensure no delays in case of mechanical issues.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fleet Management -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title center">Fleet Management</h2>
+            <p class="text-center lead mb-5">Our commitment to safety and efficiency</p>
+            
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="management-card">
+                        <i class="fas fa-clipboard-check fa-3x text-primary mb-3"></i>
+                        <h4>Rigorous Maintenance</h4>
+                        <p>Our vehicles follow strict maintenance schedules to ensure optimal performance and minimize downtime.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="management-card">
+                        <i class="fas fa-id-card-alt fa-3x text-primary mb-3"></i>
+                        <h4>Certified Operators</h4>
+                        <p>All our drivers and operators are properly licensed and certified for the vehicles they operate.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="management-card">
+                        <i class="fas fa-chart-line fa-3x text-primary mb-3"></i>
+                        <h4>Performance Monitoring</h4>
+                        <p>We continuously monitor vehicle performance to identify areas for improvement and efficiency gains.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fleet Gallery -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="section-title center">Fleet Gallery</h2>
+            <p class="text-center lead mb-5">Take a closer look at our vehicles in action</p>
+            
+            <div class="row">
+                <div class="col-md-3 col-6 mb-4">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1585516119365-c0c2dcad4bf5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="gallery-img" alt="Tipping Truck">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-search-plus text-white fa-2x"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 mb-4">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1574359173084-bfcee66c2c2a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="gallery-img" alt="Yellow Equipment">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-search-plus text-white fa-2x"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 mb-4">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="gallery-img" alt="Passenger Transport">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-search-plus text-white fa-2x"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 mb-4">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="gallery-img" alt="Specialty Trailer">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-search-plus text-white fa-2x"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 mb-4">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="gallery-img" alt="Light Commercial">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-search-plus text-white fa-2x"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 mb-4">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="gallery-img" alt="Support Vehicle">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-search-plus text-white fa-2x"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 mb-4">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="gallery-img" alt="Vehicle Maintenance">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-search-plus text-white fa-2x"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 mb-4">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1603712610494-7b435aef8435?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="gallery-img" alt="Operations">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-search-plus text-white fa-2x"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-5" style="background: linear-gradient(to right, #e67e22, #f39c12);">
+        <div class="container py-5 text-center text-white">
+            <h2 class="mb-4">Need Transportation Solutions?</h2>
+            <p class="lead mb-4">Contact us today to discuss your specific requirements</p>
+            <a href="contact.html" class="btn btn-light btn-lg">Get a Quote</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h4>AMBROSIA LOGISTICS</h4>
+                    <p>Transportation & Guesthouse Services</p>
+                    <p>Company Registration: 2013/178702/07</p>
+                    <div class="social-icons mt-3">
+                        <a href="https://www.facebook.com/share/1BZNuB1aFe/?mibextid=wwXIfr"><i class="fab fa-facebook-f"></i></a>
+                        <!--<a href="#"><i class="fab fa-twitter"></i></a>-->
+                        <!--<a href="#"><i class="fab fa-linkedin-in"></i></a>-->
+                        <!--<a href="#"><i class="fab fa-instagram"></i></a>-->
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h4>Contact Info</h4>
+                    <p><i class="fas fa-map-marker-alt me-2"></i> 5153 Topline Single, Postdene, Postmasburg, Northern Cape, South Africa, 8420</p>
+                    <p><i class="fas fa-phone me-2"></i> 074 224 3219</p>
+                    <p><i class="fas fa-envelope me-2"></i> info@ambrosialogistics.co.za</p>
+                </div>
+                <div class="col-lg-4">
+                    <h4>Quick Links</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="fleet.html">Our Fleet</a></li>
+                        <li><a href="accommodation.html">Accommodation</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4 bg-light">
+            <div class="text-center">
+                <p class="mb-0">&copy; 2023 Ambrosia Logistics. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
